@@ -1,13 +1,13 @@
 <template>
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <img alt="Vue logo" src="@/assets/logo.png" />
+    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-    name: "App",
+    name: "Page",
     components: {
         HelloWorld,
     },
@@ -16,15 +16,15 @@ export default {
 
 <style lang="scss">
 body {
-    background-color: #e418ff;
+    background-color: #ee4e35;
 }
-#app {
+#page {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #7db3e9;
-    // background-color: #27272a;
+    color: #2c3e50;
+    background-color: #27272a;
     margin-top: 60px;
 }
 </style>
