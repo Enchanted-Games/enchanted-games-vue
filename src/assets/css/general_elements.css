@@ -1,0 +1,19 @@
+body {
+  background-color: var(--main-background-colour);
+}
+
+#page {
+  margin: 0px;
+  padding: 0px;
+}
+
+.main-container {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #a3c1df;
+  margin: 0px;
+  height: 100%;
+  padding: 1rem;
+}/*# sourceMappingURL=general_elements.css.map */

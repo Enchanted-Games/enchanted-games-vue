@@ -6,10 +6,19 @@
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
         <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
         <title><%= htmlWebpackPlugin.options.title %></title>
+        <style>
+            body {
+                background-color: hsl(214, 3%, 25%);
+                -webkit-transition: background-color 100ms ease-in;
+                -ms-transition: background-color 100ms ease-in;
+                transition: background-color 100ms ease-in;
+            }
+        </style>
     </head>
     <body>
         <noscript>
-            <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+            <h1><strong style="color: white"><%= htmlWebpackPlugin.options.title %></strong></h1>
+            <strong style="color: white">We're sorry but this page doesn't work properly with JavaScript disabled. Please enable JavaScript to continue to this site.</strong>
         </noscript>
         <div id="page"></div>
         <!-- built files will be auto injected -->

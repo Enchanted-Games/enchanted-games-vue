@@ -1,0 +1,132 @@
+// :root {
+//     --main-background-colour: #242526;
+
+//     /* old */
+//     --main-colour: #242526;
+//     --main-text-colour: #ffffff;
+//     /**/
+//     --modal-bg-colour: #242526;
+//     --modal-text-colour: #ffffff;
+//     --main-text-colour-invert: #333333;
+//     --box-text: #ebebeb;
+//     --image-invert-theme: none();
+//     --MCUIbackgroundColour: #171717;
+//     --MCUIbackgroundColourFocus: #303030;
+//     --MCUIborderLighter: #484848;
+//     --MCUIborderDarker: #000000;
+//     --MCUIinvBackground: #171717;
+//     --MCUIpopupTitle: #fcfcfc;
+//     --MCUIpopupLore: #a800a8;
+//     --newMCUI-brightenAmount: 110%;
+//     --newMCUI-borderThickness: 3px;
+//     --newMCUI-bottomShadowHeight: 6px;
+//     --newMCUI-bottomShadowHalfHeight: 3px;
+//     --newMCUI-textColour: #ffffff;
+//     --newMCUI-sectionBackground: #48494a;
+//     --newMCUI-sectionLightBorder: #6a6c70;
+//     --newMCUI-sectionDarkBorder: #1e1e1f;
+//     --newMCUI-bottomShadow: #313233;
+//     --newMCUI-slotBackgroundColour: #88898a;
+//     --newMCUI-slotBackgroundColourHover: #73a258;
+//     --newMCUI-buttonBorderWidth: 2px;
+//     --newMCUI-buttonTextColour: #ffffff;
+//     --newMCUI-buttonBackground: #48494a;
+//     --newMCUI-buttonLightBorder: #6a6c70;
+//     --newMCUI-buttonDarkBorder: #1e1e1f;
+//     --newMCUI-buttonBottomShadow: #313233;
+//     --newMCUI-buttonBottomShadowHeight: 3px;
+//     --newMCUI-buttonTextColour-hover: #fcfcfc;
+//     --newMCUI-buttonBackground-hover: #3c8527;
+//     --newMCUI-buttonLightBorder-hover: #639d52;
+//     --newMCUI-buttonDarkBorder-hover: #1e1e1f;
+//     --newMCUI-buttonBottomShadow-hover: #34542b;
+//     --newMCUI-buttonBottomShadowHeight-hover: 3px;
+//     --newMCUI-buttonTopMargin-hover: 4px;
+//     --newMCUI-buttonBottomShadowHeight-pressed: 1px;
+//     --newMCUI-buttonTopMargin-pressed: 6px;
+//     --button-bg: #bababa;
+//     --button-bg-hover: #949494;
+//     --main-text-colour-selected: #333333;
+//     --border-colour: #8f8f8f;
+//     --header-selected: #5c5c5c;
+//     --header-text-hover: #bababa;
+//     --header-bg: #ffffff;
+//     --modal-main: #7e5f9a;
+//     --header-text-colour: #ffffff;
+//     --modal-header-text: #ffffff;
+//     --button-background-colour: #171717;
+//     --button-hilight-colour: #484848;
+//     --button-shadow-colour: #000000;
+//     --button-text-colour: #ffffff;
+//     --button-text-shadow: #3e3e3e;
+//     --button-background-colour-hover: #7d6099;
+//     --button-hilight-colour-hover: #ae8ecd;
+//     --button-shadow-colour-hover: #543a6d;
+//     --button-text-colour-hover: #ffffff;
+//     --button-text-shadow-hover: #3e3e3e;
+//     --scrollbar-thickness: 16px;
+//     --scrollbar-handle-colour: #4c4d4d;
+//     --scrollbar-handle-colour-hover: #58595a;
+//     --scrollbar-background-colour: #323334;
+//     --scrollbar-button-background-colour: #262627;
+//     --scrollbar-button-background-colour-hover: #323334;
+//     --scrollbar-button-arrow-colour: #4c4d4d;
+//     --scrollbar-button-arrow-colour-hover: #58595a;
+//     --brightness-100: brightness(100%);
+//     --brightness-75: brightness(90%);
+//     --brightness-50: brightness(75%);
+//     --brightness-25: brightness(65%);
+//     --soft-clay-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.6);
+//     --soft-clay-box-shadow-large: 0px 4px 5px 1px rgba(0, 0, 0, 0.4);
+// }
+
+/* Root with dark mode (default) styling */
+:root {
+    // keep things that change in light mode near the top
+    --main-background-colour: #1e1e1e;
+
+    --input-switch-background: #f1f7f9;
+    --input-switch-background-circle: #111212;
+    --input-switch-background-active: var(--main-brand-colour-600);
+
+    --focus-border-colour: lightskyblue;
+    --focus-border-width: 2px;
+    --focus-border-style: dashed;
+    --focus-border-radius: 10px;
+
+    --header-height: 50px;
+    --header-content-max-width: 1500px;
+    --header-main-background: hsl(300, 5%, 20%);
+    --header-second-background: hsl(300, 5%, 15%);
+    --header-main-text: hsl(0, 0%, 100%);
+    --header-main-text-hover: hsla(0, 0%, 100%, 0.8);
+    --header-accent-light: var(--main-brand-colour-600);
+    --header-accent-dark: var(--main-brand-colour-400);
+
+    --theme-invert-filter: invert();
+    --theme-invert-filter-opposite: none();
+
+    --main-brand-colour-100: hsl(333, 30%, 10%);
+    --main-brand-colour-200: hsl(333, 32%, 20%);
+    --main-brand-colour-400: hsl(333, 34%, 40%);
+    --main-brand-colour-500: hsl(333, 36%, 50%);
+    --main-brand-colour-600: hsl(333, 38%, 60%);
+    --main-brand-colour-800: hsl(333, 40%, 80%);
+}
+
+/* Root with light mode styling */
+:root.light-theme {
+    // keep things that change in light mode near the top
+    --main-background-colour: #ebebeb;
+
+    --input-switch-background: #111212;
+    --input-switch-background-circle: #f1f7f9;
+
+    --header-main-background: hsl(300, 5%, 20%);
+    --header-second-background: hsl(300, 5%, 15%);
+    --header-accent-light: var(--main-brand-colour-600);
+    --header-accent-dark: var(--main-brand-colour-400);
+
+    --theme-invert-filter: none();
+    --theme-invert-filter-opposite: invert();
+}

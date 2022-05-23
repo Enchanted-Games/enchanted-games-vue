@@ -1,0 +1,114 @@
+.bold {
+  font-weight: bold;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
+
+.icon-span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-image: var(--background-url);
+  background-position: center;
+  background-size: contain;
+  filter: var(--theme-invert-filter);
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.icon-span-opposite-invert {
+  filter: var(--theme-invert-filter-opposite);
+}
+
+.icon-span[data-toggle-theme-icon] {
+  width: 26px;
+  height: 26px;
+  --background-url: url(@/assets/images/icons/toggle_theme.png);
+  filter: invert(1);
+}
+
+/* imput-switch */
+.input-switch-container {
+  padding: 5px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.input-switch-container p {
+  vertical-align: middle;
+  margin-right: 5px;
+  font-size: 18px;
+}
+
+.input-switch {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--input-switch-background);
+  transition: 0.3s;
+}
+
+.input-switch:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 3px;
+  background-color: var(--input-switch-background-circle);
+  transition: 0.3s;
+}
+
+input:checked + .input-switch {
+  background-color: var(--input-switch-background-active);
+  outline: none;
+}
+
+input:focus + .input-switch {
+  outline: 2px solid #53abfd;
+}
+
+input:focus:checked + .input-switch {
+  outline: 2px solid #53abfd;
+}
+
+input:checked + .input-switch:before {
+  transform: translateX(17px);
+}
+
+.input-switch-outer {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 26px;
+}
+
+.input-switch-outer input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Rounded sliders */
+.input-switch.round {
+  border-radius: 34px;
+}
+
+.input-switch.round:before {
+  border-radius: 50%;
+}/*# sourceMappingURL=general_classes.css.map */
