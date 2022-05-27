@@ -82,8 +82,23 @@
 
 /* Root with dark mode (default) styling */
 :root {
+    // changes dynamically
+    --main-background-image: url("");
+
+    --main-content-max-width: 1500px;
+
     // keep things that change in light mode near the top
-    --main-background-colour: #1e1e1e;
+    --main-background-colour: hsl(300, 3%, 10%);
+
+    --link-colour: var(--main-brand-colour-600);
+    --link-colour-hover: var(--main-brand-colour-800);
+    --main-text-colour: #ffffff;
+    --main-text-colour-gradient: var(--main-brand-colour-600);
+    --main-text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+
+    --h-text-colour: var(--main-brand-colour-700);
+    --main-text-size: 17px;
+    --h1-text-size: 50px;
 
     --input-switch-background: #f1f7f9;
     --input-switch-background-circle: #111212;
@@ -94,8 +109,7 @@
     --focus-border-style: dashed;
     --focus-border-radius: 10px;
 
-    --header-height: 50px;
-    --header-content-max-width: 1500px;
+    --header-height: 60px; // changes header itself and the spacing behind the header
     --header-main-background: hsl(300, 5%, 20%);
     --header-second-background: hsl(300, 5%, 15%);
     --header-main-text: hsl(0, 0%, 100%);
@@ -108,16 +122,23 @@
 
     --main-brand-colour-100: hsl(333, 30%, 10%);
     --main-brand-colour-200: hsl(333, 32%, 20%);
+    --main-brand-colour-300: hsl(333, 32%, 30%);
     --main-brand-colour-400: hsl(333, 34%, 40%);
     --main-brand-colour-500: hsl(333, 36%, 50%);
     --main-brand-colour-600: hsl(333, 38%, 60%);
+    --main-brand-colour-700: hsl(333, 38%, 70%);
     --main-brand-colour-800: hsl(333, 40%, 80%);
 }
 
 /* Root with light mode styling */
 :root.light-theme {
     // keep things that change in light mode near the top
-    --main-background-colour: #ebebeb;
+    --main-background-colour: hsl(300, 3%, 95%);
+
+    --link-colour: var(--main-brand-colour-400);
+    --link-colour-hover: var(--main-brand-colour-600);
+    --main-text-colour: hsl(0, 0%, 6%);
+    --main-text-colour-gradient: var(--main-brand-colour-600);
 
     --input-switch-background: #111212;
     --input-switch-background-circle: #f1f7f9;
@@ -127,6 +148,15 @@
     --header-accent-light: var(--main-brand-colour-600);
     --header-accent-dark: var(--main-brand-colour-400);
 
+    --h-text-colour: var(--main-brand-colour-500);
+
     --theme-invert-filter: none();
     --theme-invert-filter-opposite: invert();
+}
+
+@media (max-width: 850px) {
+    :root {
+        // mobile header size
+        --header-height: 70px;
+    }
 }

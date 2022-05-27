@@ -17,14 +17,6 @@
                 <ThemeToggle />
             </label>
         </div>
-        <!-- <div class="header-inner">
-            <div class="header-logo-container">
-                <h1><a href="/">Enchanted</a></h1>
-            </div>
-            <div class="header-switch-container">
-                <ThemeToggle />
-            </div>
-        </div> -->
     </header>
 </template>
 
@@ -49,9 +41,10 @@ header {
     border-bottom: 3px solid var(--header-accent-light);
     box-shadow: 0px 0px 5px var(--header-accent-dark);
     height: var(--header-height);
+    transition: height 0.5s ease-in-out;
     width: 100%;
-    // height: var(--header-height);
-    display: block;
+    display: flex;
+    justify-content: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -63,22 +56,46 @@ header {
     max-width: var(--header-content-max-width);
 }
 
+// header logo
 .logo {
-    color: var(--header-main-text);
+    background-image: initial;
+    background-clip: initial;
     height: 100%;
-    text-shadow: 0px 0px 6px var(--header-accent-light);
     font-size: 30px;
+    display: flex;
+    align-items: center;
 }
 .logo a {
+    color: var(--header-main-text);
     all: inherit;
     cursor: pointer;
     user-select: none;
-    display: inline;
+
+    text-shadow: initial;
+    color: rgba(0, 0, 0, 0);
+    background-image: linear-gradient(45deg, var(--main-brand-colour-700), white);
+    background-clip: text;
+    background-size: 200px;
+}
+@media (max-width: 300px) {
+    // .logo a {
+    //     display: inline-block;
+    //     width: 20px;
+    //     overflow: hidden;
+    //     background-size: 16px;
+    // }
+    header {
+        justify-content: space-between;
+    }
+    .header-container {
+        margin-right: auto;
+        margin-left: 20px;
+    }
 }
 
 nav {
     position: absolute;
-    text-align: left;
+    text-align: right;
     top: 100%;
     left: 0;
     width: 100%;
@@ -153,8 +170,10 @@ nav a:focus {
     cursor: pointer;
     position: absolute;
     top: 0;
-    left: 0;
-    margin-left: 1em;
+    right: 0;
+    margin-right: 1em;
+    padding-left: 20px;
+    padding-right: 20px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -177,6 +196,7 @@ nav a:focus {
 }
 .nav-toggle-label span::before {
     bottom: 7px;
+    opacity: 1;
 }
 
 .nav-toggle-label span::after {
@@ -194,12 +214,11 @@ nav a:focus {
     height: 3px;
 }
 .nav-toggle:checked ~ .nav-toggle-label span::before {
-    all: initial;
+    opacity: 0;
 }
 .nav-toggle:checked ~ .nav-toggle-label span {
     transform: rotate(-45deg);
     height: 3px;
-    // clip-path: polygon(17% 0%, 0% 20%, 28% 50%, 0% 80%, 17% 100%, 50% 71%, 83% 100%, 100% 80%, 72% 50%, 100% 20%, 83% 0%, 50% 30%);
 }
 
 .header-switch-container {
@@ -217,8 +236,9 @@ nav a:focus {
     transition: transform 150ms ease-in-out;
 }
 
-@media (min-width: 820px) {
+@media (min-width: 850px) {
     // desktop header styles
+
     .nav-toggle-label {
         display: none;
     }
@@ -234,7 +254,7 @@ nav a:focus {
         margin-left: auto;
         margin-right: auto;
         display: grid;
-        grid-template-columns: auto 50px minmax(400px, 2fr) 100px;
+        grid-template-columns: auto 0.5fr minmax(500px, 2fr);
         max-width: var();
     }
     .header-switch-container {

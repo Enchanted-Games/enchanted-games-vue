@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "dompurify": "^2.3.8",
+    "marked": "^4.0.16",
     "vue": "^3.2.13"
   },
   "devDependencies": {
