@@ -1,15 +1,25 @@
 <template>
+    <Head>
+        <title>Home | Enchanted Games</title>
+    </Head>
     <PageHeader />
     <div class="main-container">
         <img class="page-header-image" alt="Page Icon" src="@/assets/logo.png" />
-        <div v-html="markdownToHTML"></div>
+        <GeneralSection numberID="0" :html_content="markdownToHTML" />
+        <GeneralSection numberID="1" canCollapse="false" :html_content="'<h1>Images</h1>'" />
     </div>
 </template>
 
 <script>
+// custom components
 import Styles from "@/components/Styles.vue";
 import PageHeader from "@/components/PageHeader.vue";
 import GenericSwitch from "@/components/GenericSwitch.vue";
+import GeneralSection from "@/components/GeneralSection.vue";
+
+// libraries
+import { Head } from "@vueuse/head";
+
 import { marked } from "marked";
 import DOMPurify from "dompurify";
 
@@ -19,6 +29,8 @@ export default {
         Styles,
         PageHeader,
         GenericSwitch,
+        Head,
+        GeneralSection,
     },
     data() {
         return {

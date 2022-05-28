@@ -1,22 +1,23 @@
 /* Root with dark mode (default) styling */
 :root {
-  --main-background-image: url("");
+  --main-background-image: none;
   --main-content-max-width: 1500px;
   --main-background-colour: hsl(300, 3%, 10%);
-  --link-colour: var(--main-brand-colour-600);
-  --link-colour-hover: var(--main-brand-colour-800);
+  --link-colour: var(--main-brand-colour-800);
+  --link-colour-hover: var(--main-brand-colour-700);
   --main-text-colour: #ffffff;
   --main-text-colour-gradient: var(--main-brand-colour-600);
-  --main-text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
-  --h-text-colour: var(--main-brand-colour-700);
+  --main-text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.6);
+  --main-headings-text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+  --headings-text-colour: var(--main-brand-colour-700);
   --main-text-size: 17px;
-  --h1-text-size: 50px;
+  --h1-text-size: 40px;
   --input-switch-background: #f1f7f9;
   --input-switch-background-circle: #111212;
   --input-switch-background-active: var(--main-brand-colour-600);
-  --focus-border-colour: lightskyblue;
-  --focus-border-width: 2px;
-  --focus-border-style: dashed;
+  --focus-border-colour: #0060df;
+  --focus-border-width: 3px;
+  --focus-border-style: solid;
   --focus-border-radius: 10px;
   --header-height: 60px;
   --header-main-background: hsl(300, 5%, 20%);
@@ -25,6 +26,10 @@
   --header-main-text-hover: hsla(0, 0%, 100%, 0.8);
   --header-accent-light: var(--main-brand-colour-600);
   --header-accent-dark: var(--main-brand-colour-400);
+  --section-background-color: hsla(300, 2%, 40%, 0.3);
+  --section-background-blur-amount: 3px;
+  --section-background-border-radius: 25px;
+  --section-box-shadow-soft: 0px 10px 35px -4px rgba(0, 0, 0, 0.7);
   --theme-invert-filter: invert();
   --theme-invert-filter-opposite: none();
   --main-brand-colour-100: hsl(333, 30%, 10%);
@@ -37,26 +42,20 @@
   --main-brand-colour-800: hsl(333, 40%, 80%);
 }
 
-/* Root with light mode styling */
-:root.light-theme {
-  --main-background-colour: hsl(300, 3%, 95%);
-  --link-colour: var(--main-brand-colour-400);
-  --link-colour-hover: var(--main-brand-colour-600);
-  --main-text-colour: hsl(0, 0%, 6%);
-  --main-text-colour-gradient: var(--main-brand-colour-600);
-  --input-switch-background: #111212;
-  --input-switch-background-circle: #f1f7f9;
-  --header-main-background: hsl(300, 5%, 20%);
-  --header-second-background: hsl(300, 5%, 15%);
-  --header-accent-light: var(--main-brand-colour-600);
-  --header-accent-dark: var(--main-brand-colour-400);
-  --h-text-colour: var(--main-brand-colour-500);
-  --theme-invert-filter: none();
-  --theme-invert-filter-opposite: invert();
+::-moz-selection {
+  background-color: hsl(333deg, 32%, 30%);
+  color: white;
 }
 
+::selection {
+  background-color: hsl(333deg, 32%, 30%);
+  color: white;
+}
+
+/* Root with light mode styling */
 @media (max-width: 850px) {
   :root {
     --header-height: 70px;
+    --h1-text-size: 30px;
   }
 }/*# sourceMappingURL=global_variables.css.map */

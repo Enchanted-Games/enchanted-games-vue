@@ -1,7 +1,11 @@
 <template>
     <header>
         <div class="header-container">
-            <h1 class="logo"><a href="/">Enchanted</a></h1>
+            <h1 class="logo">
+                <span>
+                    <a href="/">Enchanted</a>
+                </span>
+            </h1>
             <input type="checkbox" id="nav-toggle" class="nav-toggle" />
             <nav>
                 <ul>
@@ -27,10 +31,6 @@ export default {
     name: "PageHeader",
     components: {
         ThemeToggle,
-    },
-    props: {
-        label: String,
-        startChecked: String,
     },
 };
 </script>
@@ -58,6 +58,7 @@ header {
 
 // header logo
 .logo {
+    z-index: 10001;
     background-image: initial;
     background-clip: initial;
     height: 100%;
@@ -66,17 +67,30 @@ header {
     align-items: center;
 }
 .logo a {
+    font-family: "Outfit Bold";
     color: var(--header-main-text);
-    all: inherit;
     cursor: pointer;
     user-select: none;
+    height: 100%;
+    font-size: 30px;
 
     text-shadow: initial;
-    color: rgba(0, 0, 0, 0);
-    background-image: linear-gradient(45deg, var(--main-brand-colour-700), white);
-    background-clip: text;
-    background-size: 200px;
+    color: var(--main-brand-colour-700);
 }
+@supports (background-clip: text) {
+    .logo a {
+        background-image: linear-gradient(45deg, var(--main-brand-colour-700), white);
+        background-size: 200px;
+        color: rgba(0, 0, 0, 0);
+        background-clip: text;
+    }
+}
+@supports not (background-clip: text) {
+    .logo a {
+        background-image: initial;
+    }
+}
+
 @media (max-width: 300px) {
     // .logo a {
     //     display: inline-block;
@@ -296,6 +310,7 @@ nav a:focus {
     }
 
     nav a {
+        color: var(--header-main-text);
         display: inline;
         opacity: 1;
         position: relative;

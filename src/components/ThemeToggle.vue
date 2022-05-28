@@ -50,12 +50,13 @@ export default {
         },
 
         getMediaPreference() {
-            const hasDarkPreference = window.matchMedia("(prefers-color-scheme: dark)").matches;
-            if (hasDarkPreference) {
-                return "dark-theme";
-            } else {
-                return "light-theme";
-            }
+            // const hasDarkPreference = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            // if (hasDarkPreference) {
+            //     return "dark-theme";
+            // } else {
+            //     return "light-theme";
+            // }
+            return "dark-theme";
         },
     },
 };
