@@ -10,6 +10,7 @@
     "@vueuse/head": "^0.7.6",
     "core-js": "^3.8.3",
     "dompurify": "^2.3.8",
+    "firebase": "^9.8.2",
     "marked": "^4.0.16",
     "vue": "^3.2.13"
   },

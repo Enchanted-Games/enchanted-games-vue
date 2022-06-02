@@ -1,24 +1,21 @@
 @font-face {
-    font-family: "Outfit Light";
-    src: url(@/assets/fonts/outfit/outfit-light.ttf);
+  font-family: "Outfit Light";
+  src: url(@/assets/fonts/outfit/outfit-light.ttf);
 }
-
 @font-face {
-    font-family: "Outfit Bold";
-    src: url(@/assets/fonts/outfit/outfit-bold.ttf);
+  font-family: "Outfit Bold";
+  src: url(@/assets/fonts/outfit/outfit-bold.ttf);
 }
-
 @font-face {
-    font-family: "Outfit Regular";
-    src: url(@/assets/fonts/outfit/outfit-regular.ttf);
+  font-family: "Outfit Regular";
+  src: url(@/assets/fonts/outfit/outfit-regular.ttf);
 }
-
 /* Box sizing rules */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    font-family: "Outfit Regular";
+  box-sizing: border-box;
+  font-family: "Outfit Regular";
 }
 
 /* set up fonts and colours */
@@ -26,37 +23,39 @@ h1,
 h2,
 h3,
 h4 {
-    font-family: "Outfit Bold";
-    /* color: rgba(0, 0, 0, 0);
-    background-image: linear-gradient(45deg, var(--main-text-colour-gradient), var(--main-text-colour));
-    background-clip: text; */
-    color: var(--headings-text-colour);
-    text-shadow: var(--main-headings-text-shadow);
+  font-family: "Outfit Bold";
+  /* color: rgba(0, 0, 0, 0);
+  background-image: linear-gradient(45deg, var(--main-text-colour-gradient), var(--main-text-colour));
+  background-clip: text; */
+  color: var(--headings-text-colour);
+  text-shadow: var(--main-headings-text-shadow);
 }
+
 h1 {
-    font-size: var(--h1-text-size);
+  font-size: var(--h1-text-size);
 }
 
 p,
 li {
-    font-size: var(--main-text-size);
-    color: var(--main-text-colour);
-    text-shadow: var(--main-text-shadow);
+  font-size: var(--main-text-size);
+  color: var(--main-text-colour);
+  text-shadow: var(--main-text-shadow);
 }
 
 /* link styles */
 a:not(nav a, .logo a) {
-    font-size: var(--main-text-size);
-    font-weight: bold;
-    text-shadow: var(--main-text-shadow);
-    text-decoration: none;
-    color: var(--link-colour);
-    border-bottom: 2px solid var(--link-colour);
+  font-size: var(--main-text-size);
+  font-weight: bold;
+  text-shadow: var(--main-text-shadow);
+  text-decoration: none;
+  color: var(--link-colour);
+  border-bottom: 2px solid var(--link-colour);
 }
+
 a:not(nav a, .logo a):hover,
 a:not(nav a, .logo a):focus {
-    color: var(--link-colour-hover);
-    border-bottom: 0px solid var(--link-colour-hover);
+  color: var(--link-colour-hover);
+  border-bottom: 0px solid var(--link-colour-hover);
 }
 
 /* Remove default margin */
@@ -70,31 +69,31 @@ figure,
 blockquote,
 dl,
 dd {
-    margin: 0;
+  margin: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
-    list-style: none;
+ul[role=list],
+ol[role=list] {
+  list-style: none;
 }
 
 /* Set core root defaults */
 html:focus-within {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 /* Set core body defaults */
 body {
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
 }
 
 /* Make images easier to work with */
 img,
 picture {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -102,21 +101,102 @@ input,
 button,
 textarea,
 select {
-    font: inherit;
+  font: inherit;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-    html:focus-within {
-        scroll-behavior: auto;
-    }
+  html:focus-within {
+    scroll-behavior: auto;
+  }
 
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
+  *,
+*::before,
+*::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
+* {
+  scrollbar-color: var(--scrollbar-handle-colour) var(--scrollbar-background-colour);
+  scrollbar-width: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: var(--scrollbar-thickness);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-background-colour);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-handle-colour);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-handle-colour-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-handle-colour-grabbed);
+}
+
+::-webkit-scrollbar-button {
+  border-style: solid;
+  height: var(--scrollbar-thickness);
+  width: var(--scrollbar-thickness);
+  background-color: var(--scrollbar-button-background-colour);
+}
+
+::-webkit-scrollbar-button:hover {
+  background-color: var(--scrollbar-button-background-colour-hover);
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  border-width: 0 calc(var(--scrollbar-thickness) / 2) var(--scrollbar-thickness) calc(var(--scrollbar-thickness) / 2);
+  border-color: transparent transparent var(--scrollbar-button-arrow-colour) transparent;
+}
+
+::-webkit-scrollbar-button:vertical:decrement:hover {
+  border-color: transparent transparent var(--scrollbar-button-arrow-colour-hover) transparent;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  border-width: var(--scrollbar-thickness) calc(var(--scrollbar-thickness) / 2) 0 calc(var(--scrollbar-thickness) / 2);
+  border-color: var(--scrollbar-button-arrow-colour) transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:vertical:increment:hover {
+  border-color: var(--scrollbar-button-arrow-colour-hover) transparent transparent transparent;
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  border-width: calc(var(--scrollbar-thickness) / 2) var(--scrollbar-thickness) calc(var(--scrollbar-thickness) / 2) 0;
+  border-color: transparent var(--scrollbar-button-arrow-colour) transparent transparent;
+}
+
+::-webkit-scrollbar-button:horizontal:decrement:hover {
+  border-color: transparent var(--scrollbar-button-arrow-colour-hover) transparent transparent;
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  border-width: calc(var(--scrollbar-thickness) / 2) 0 calc(var(--scrollbar-thickness) / 2) var(--scrollbar-thickness);
+  border-color: transparent transparent transparent var(--scrollbar-button-arrow-colour);
+}
+
+::-webkit-scrollbar-button:horizontal:increment:hover {
+  border-color: transparent transparent transparent var(--scrollbar-button-arrow-colour-hover);
+}
+
+::-webkit-resizer {
+  width: var(--scrollbar-thickness);
+  height: var(--scrollbar-thickness);
+  background-image: url(@/assets/images/scrollbar-icons/resizer-arrow.png);
+  background-color: var(--scrollbar-button-background-colour);
+}/*# sourceMappingURL=reset.css.map */

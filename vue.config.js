@@ -10,19 +10,19 @@ module.exports = defineConfig({
             title: "Home",
             chunks: ["chunk-vendors", "chunk-common", "index"],
         },
-        second: {
-            entry: "./src/pages/SecondPage/main.js",
+        "minecraft-bedrock-resource-packs": {
+            entry: "./src/pages/minecraft-bedrock-resource-packs/main.js",
             template: "public/index.html",
-            filename: "second.html",
-            title: "Second",
-            chunks: ["chunk-vendors", "chunk-common", "second"],
+            filename: "minecraft-bedrock-resource-packs.html",
+            title: "Minecraft Becrock Resource Packs",
+            chunks: ["chunk-vendors", "chunk-common", "minecraft-bedrock-resource-packs"],
         },
-        "dir/nested": {
-            entry: "./src/pages/dir/NestedPage/main.js",
+        "minecraft-bedrock-resource-packs/view": {
+            entry: "./src/pages/minecraft-bedrock-resource-packs/view/main.js",
             template: "public/index.html",
-            filename: "dir/nestedpage.html",
-            title: "nested",
-            chunks: ["chunk-vendors", "chunk-common", "dir/nested"],
+            filename: "minecraft-bedrock-resource-packs/view.html",
+            title: "Minecraft Becrock Resource Packs - View Project",
+            chunks: ["chunk-vendors", "chunk-common", "minecraft-bedrock-resource-packs/view"],
         },
     },
 });

@@ -5,8 +5,9 @@
     <PageHeader />
     <div class="main-container">
         <img class="page-header-image" alt="Page Icon" src="@/assets/logo.png" />
-        <GeneralSection numberID="0" :html_content="markdownToHTML" />
-        <GeneralSection numberID="1" canCollapse="false" :html_content="'<h1>Images</h1>'" />
+        <GeneralSection numberID="0" :htmlContent="markdownToHTML" />
+        <GeneralSection numberID="2" isImageHolder="true" canCollapse="false" imageHolderTitle="Screenshots" :imagesObject="imagesObject" />
+        <ButtonSection numberID="3" canCollapse="false" :linksObject="linksObject" />
     </div>
 </template>
 
@@ -16,6 +17,7 @@ import Styles from "@/components/Styles.vue";
 import PageHeader from "@/components/PageHeader.vue";
 import GenericSwitch from "@/components/GenericSwitch.vue";
 import GeneralSection from "@/components/GeneralSection.vue";
+import ButtonSection from "@/components/ButtonSection.vue";
 
 // libraries
 import { Head } from "@vueuse/head";
@@ -31,6 +33,7 @@ export default {
         GenericSwitch,
         Head,
         GeneralSection,
+        ButtonSection,
     },
     data() {
         return {
@@ -43,6 +46,18 @@ A simple, vanilla-like mod that adds BetterEnd vertical slabs to Minecraft. They
 ## Some bugs fixed in the seperating:
 - Some blocks including Neon Cactus Slabs and Smaragdant Slabs now have correct textures and block properties (light levels and sounds)
 `,
+            linksObject: [
+                { src: "https://media.discordapp.net/attachments/930130561706622999/937762431105658930/unknown.png?width=829&height=466", desc: "Link1" },
+                { src: "https://media.discordapp.net/attachments/930130561706622999/937762775525101608/unknown.png?width=829&height=466", desc: "Link2" },
+                { src: "https://media.discordapp.net/attachments/930130561706622999/930133941451653180/unknown.png?width=467&height=467", desc: "Link3" },
+            ],
+            imagesObject: [
+                { src: "https://enchanted.games/images/mods/evs-betterend/slabs.png", desc: "Slabs" },
+                { src: "https://enchanted.games/images/mods/evs-betterend/slabs-inv.png", desc: "Slabs in inventory" },
+                { src: "https://media.discordapp.net/attachments/930130561706622999/930133841836933200/unknown.png?width=467&height=467", desc: "fire" },
+                { src: "https://media.discordapp.net/attachments/930130561706622999/937762775525101608/unknown.png?width=829&height=466", desc: "cave" },
+                { src: "https://media.discordapp.net/attachments/944309605234778173/972632200589738014/blockdesignerbutton.png", desc: "second description" },
+            ],
         };
     },
     computed: {
