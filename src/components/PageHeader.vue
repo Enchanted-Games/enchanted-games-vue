@@ -6,32 +6,27 @@
                     <a href="/">Enchanted</a>
                 </span>
             </h1>
-            <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+            <input aria-label="open header navigation" type="checkbox" id="nav-toggle" class="nav-toggle" />
             <nav>
                 <ul>
-                    <li><a href="/minecraft-projects">Minecraft Projects</a></li>
-                    <li><a href="/generator/blockdesigner">Block Designer</a></li>
-                    <li><a href="/second">Other Projects</a></li>
+                    <li><a href="/minecraft-projects.html">Minecraft Projects</a></li>
+                    <li><a href="/generator/blockdesigner.html">Block Designer</a></li>
+                    <li><a href="/other-projects.html">Other Projects</a></li>
                 </ul>
             </nav>
             <label for="nav-toggle" class="nav-toggle-label">
                 <span></span>
             </label>
-            <label class="header-switch-container">
+            <!-- <label class="header-switch-container">
                 <ThemeToggle />
-            </label>
+            </label> -->
         </div>
     </header>
 </template>
 
 <script>
-import ThemeToggle from "@/components/ThemeToggle.vue";
-
 export default {
     name: "PageHeader",
-    components: {
-        ThemeToggle,
-    },
 };
 </script>
 

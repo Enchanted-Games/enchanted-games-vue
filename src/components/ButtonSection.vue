@@ -35,6 +35,11 @@ export default {
         },
 
         // links array
+        /*
+            [
+                {"src","destination URL for the link", "desc","text for the button"}
+            ]
+        */
         linksObject: {
             type: Object,
             default: [],
@@ -125,6 +130,7 @@ export default {
 
 .link-container img {
     flex-basis: 32px;
+    border-radius: 7px;
 }
 
 .link-container a {
@@ -146,5 +152,8 @@ export default {
     opacity: 1;
     color: white;
     border-bottom: initial;
+}
+.link-container a:focus {
+    outline: var(--focus-border-colour) var(--focus-border-style) var(--focus-border-width);
 }
 </style>

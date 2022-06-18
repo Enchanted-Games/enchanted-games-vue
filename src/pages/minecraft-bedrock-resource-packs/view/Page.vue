@@ -5,11 +5,12 @@
     </Head>
     <PageHeader />
     <div class="main-container">
-        <img class="page-header-image" alt="Page Icon" :src="faviconImageSrc" />
+        <BackButton />
+        <img class="page-header-image" loading="lazy" :alt="pageTitle" :src="faviconImageSrc" />
         <MetadataSection v-if="projectMetaData != null" :metadataArray="projectMetaData" />
         <GeneralSection numberID="0" :canCollapse="shouldMainSectionCollapse" :htmlContent="markdownToHTML" />
         <GeneralSection v-if="imagesObject != null" numberID="2" isImageHolder="true" canCollapse="false" imageHolderTitle="Screenshots" :imagesObject="imagesObject" />
-        <ButtonSection v-if="imagesObject != null" numberID="3" canCollapse="false" :linksObject="linksObject" />
+        <ButtonSection v-if="linksObject != null" numberID="3" canCollapse="false" :linksObject="linksObject" />
     </div>
 </template>
 
@@ -21,6 +22,7 @@ import MetadataSection from "@/components/MetadataSection.vue";
 import GenericSwitch from "@/components/GenericSwitch.vue";
 import GeneralSection from "@/components/GeneralSection.vue";
 import ButtonSection from "@/components/ButtonSection.vue";
+import BackButton from "@/components/BackButton.vue";
 
 // libraries
 import { Head } from "@vueuse/head";
@@ -51,12 +53,14 @@ export default {
         GeneralSection,
         ButtonSection,
         MetadataSection,
+        BackButton,
     },
     data() {
         return {
+            projectType: "minecraft-bedrock-resource-pack", // types of projects that will be displayed
             firebaseCollectionName: "projects", // firebase collection that this page will search for the project in URL
             pageTitle: "Minecraft Bedrock Resource Pack",
-            faviconImageSrc: "http://127.0.0.1:8080/img/screenshot.63172bfa.png",
+            faviconImageSrc: "/favicon.ico",
 
             shouldMainSectionCollapse: "true",
 
@@ -96,11 +100,13 @@ export default {
             .then((e) => {
                 let data = e.data();
 
-                if (data == undefined) {
+                if (data == undefined || data["projecttype"] != this.projectType) {
                     // if project is not found
                     this.markdown = `# Whoops...
 We couldn't find that project, it may have been moved or deleted. Double check the spelling in the URL or [return home.](/index.html)
 `;
+                    this.shouldMainSectionCollapse = "false";
+                    this.faviconImageSrc = "/favicon.ico";
                     this.pageTitle = "404";
                     // window.location.pathname = "/404";
                 } else {
@@ -127,7 +133,8 @@ We couldn't find that project, it may have been moved or deleted. Double check t
                     this.pageTitle = data["project-title"];
 
                     this.faviconImageSrc = data["favicon-url"];
-                    console.log(data["favicon-url"]);
+
+                    document.documentElement.style.setProperty("--main-background-image", `url(${data["background-url"]})`);
                 }
             })
             .catch(function (e) {
@@ -138,9 +145,6 @@ We couldn't find that project, it may have been moved or deleted. Double check t
 </script>
 
 <style lang="scss">
-:root {
-    --main-background-image: url(@/assets/images/screenshot.png);
-}
 img {
     margin: auto;
 }

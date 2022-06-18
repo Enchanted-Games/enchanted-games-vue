@@ -106,16 +106,16 @@ shouldnt be deleted as they are planned to maybe be used again in the future
 
     --headings-text-colour: var(--main-brand-colour-700); // text colour for heading tags <h1> <h1> etc
     --main-text-size: 17px; // size of regular text
-    --h1-text-size: 40px; // <h1> tag text size
+    --h1-text-size: 42px; // <h1> tag text size
 
     --input-switch-background: #f1f7f9; // switch background colour
     --input-switch-background-circle: #111212; // toggle part of switch colour
     --input-switch-background-active: var(--main-brand-colour-600); // switch toggled on background colour
 
-    --focus-border-colour: #0060df; // ~ not used
-    --focus-border-width: 3px; // ~ not used
-    --focus-border-style: solid; // ~ not used
-    --focus-border-radius: 10px; // ~ not used
+    --focus-border-colour: #0060df; // focused element styling (only used on a few elements, most use default borser styling)
+    --focus-border-width: 3px;
+    --focus-border-style: solid;
+    --focus-border-radius: 10px;
 
     --header-height: 60px; // changes header itself and the spacing behind the header
     --header-main-background: hsl(300, 5%, 20%); // background colour of header
@@ -125,27 +125,29 @@ shouldnt be deleted as they are planned to maybe be used again in the future
     --header-accent-light: var(--main-brand-colour-600); // header accent colour light
     --header-accent-dark: var(--main-brand-colour-400); // header accent colour dark
 
+    --general-searchbar-border-radius: 5px; // searchbar border radius
+    --general-searchbar-text-colour: #ffffff; // searchbar text colour (also used by back button)
+    --general-searchbar-background-colour: rgba(0, 0, 0, 0.4); // searchbar background colour (also used by back button)
+    --general-searchbar-background-colour-hover: rgba(0, 0, 0, 0.6); // searchbar background colour hover (also used by back button)
+
     --section-background-colour: hsla(300, 5%, 44%, 0.4); // used if backdrop filter blur is not supported
     --section-background-colour-blur: hsla(300, 2%, 40%, 0.2); // used if backdrop filter blur is supported
     --section-background-blur-amount: 3px;
     --section-background-border-radius: 25px;
     --section-box-shadow-soft: 0px 10px 35px -4px rgba(0, 0, 0, 0.7); // shadow applied to all section elements
 
+    --card-border-radius: 5px; // border radius for cards
+    --card-background-colour: rgba(0, 0, 0, 0.25); // background colour for cards
+    --card-background-colour-hover: rgba(0, 0, 0, 0.4); // bakcground colour hover for cards
+    --card-transform-time: 450ms;
+    --card-transform-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    --card-transform-y-amount: -8px;
+
     --theme-invert-filter: invert(); // ~ not used
     --theme-invert-filter-opposite: none(); // ~ not used
 
     // scrollbar colours
-    --scrollbar-thickness: 16px; // webkit scrollbar thickness
-    --scrollbar-thickness-thin: 8px; // webkit thin scrollbar thickness
-    --scrollbar-handle-colour: #4c4d4d; // scrollbar handle colour
-    --scrollbar-handle-colour-hover: #606161; // webkit scrollbar handle hover
-    --scrollbar-handle-colour-grabbed: #a6a7a7; // webkit scrollbar handle grabbed
-    --scrollbar-background-colour: #191a1a; // scrollbar background colour
-    --scrollbar-button-background-colour: #191a1a; // webkit scrollbar button background
-    --scrollbar-button-background-colour-hover: #323334; // webkit scrollbar button background hover
-    --scrollbar-button-background-colour-grabbed: #4d4e4e; // webkit scrollbar button background grabbed
-    --scrollbar-button-arrow-colour: #4c4d4d; // webkit scrollbar arrow colour
-    --scrollbar-button-arrow-colour-hover: #606161; // webkit scrollbar arrow hover
+    // located in scrollbar.scss now
 
     --image-error-background-colour: hsl(0, 54%, 56%); // background colour for an image that didnt load
     --image-error-cross-colour: var(--main-brand-colour-300); // colour of the cross on an image that didnt load
@@ -204,6 +206,6 @@ shouldnt be deleted as they are planned to maybe be used again in the future
         // mobile header size
         --header-height: 70px;
         // mobile h1 text size
-        --h1-text-size: 30px;
+        --h1-text-size: 35px;
     }
 }

@@ -18,7 +18,7 @@ shouldnt be deleted as they are planned to maybe be used again in the future
   --main-headings-text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
   --headings-text-colour: var(--main-brand-colour-700);
   --main-text-size: 17px;
-  --h1-text-size: 40px;
+  --h1-text-size: 42px;
   --input-switch-background: #f1f7f9;
   --input-switch-background-circle: #111212;
   --input-switch-background-active: var(--main-brand-colour-600);
@@ -33,24 +33,23 @@ shouldnt be deleted as they are planned to maybe be used again in the future
   --header-main-text-hover: hsla(0, 0%, 100%, 0.8);
   --header-accent-light: var(--main-brand-colour-600);
   --header-accent-dark: var(--main-brand-colour-400);
+  --general-searchbar-border-radius: 5px;
+  --general-searchbar-text-colour: #ffffff;
+  --general-searchbar-background-colour: rgba(0, 0, 0, 0.4);
+  --general-searchbar-background-colour-hover: rgba(0, 0, 0, 0.6);
   --section-background-colour: hsla(300, 5%, 44%, 0.4);
   --section-background-colour-blur: hsla(300, 2%, 40%, 0.2);
   --section-background-blur-amount: 3px;
   --section-background-border-radius: 25px;
   --section-box-shadow-soft: 0px 10px 35px -4px rgba(0, 0, 0, 0.7);
+  --card-border-radius: 5px;
+  --card-background-colour: rgba(0, 0, 0, 0.25);
+  --card-background-colour-hover: rgba(0, 0, 0, 0.4);
+  --card-transform-time: 450ms;
+  --card-transform-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --card-transform-y-amount: -8px;
   --theme-invert-filter: invert();
   --theme-invert-filter-opposite: none();
-  --scrollbar-thickness: 16px;
-  --scrollbar-thickness-thin: 8px;
-  --scrollbar-handle-colour: #4c4d4d;
-  --scrollbar-handle-colour-hover: #606161;
-  --scrollbar-handle-colour-grabbed: #a6a7a7;
-  --scrollbar-background-colour: #191a1a;
-  --scrollbar-button-background-colour: #191a1a;
-  --scrollbar-button-background-colour-hover: #323334;
-  --scrollbar-button-background-colour-grabbed: #4d4e4e;
-  --scrollbar-button-arrow-colour: #4c4d4d;
-  --scrollbar-button-arrow-colour-hover: #606161;
   --image-error-background-colour: hsl(0, 54%, 56%);
   --image-error-cross-colour: var(--main-brand-colour-300);
   --image-error-opacity: 0.4;
@@ -84,6 +83,6 @@ shouldnt be deleted as they are planned to maybe be used again in the future
 @media (max-width: 850px) {
   :root {
     --header-height: 70px;
-    --h1-text-size: 30px;
+    --h1-text-size: 35px;
   }
 }/*# sourceMappingURL=global_variables.css.map */

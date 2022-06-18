@@ -4,10 +4,10 @@
     </Head>
     <PageHeader />
     <div class="main-container">
-        <img class="page-header-image" alt="Page Icon" src="@/assets/logo.png" />
-        <GeneralSection numberID="0" :htmlContent="markdownToHTML" />
-        <GeneralSection numberID="2" isImageHolder="true" canCollapse="false" imageHolderTitle="Screenshots" :imagesObject="imagesObject" />
-        <ButtonSection numberID="3" canCollapse="false" :linksObject="linksObject" />
+        <img class="page-header-image" loading="lazy" alt="Home Page Icon" src="@/assets/logo.png" />
+        <GeneralSection numberID="0" canCollapse="false" :htmlContent="markdownToHTML" />
+        <SectionGrid sectionTitle="Projects" projectViewPath="/" :projectsArray="projectCategories" />
+        <ButtonSection numberID="3" canCollapse="false" sectionTitle="Socials" sectionText="Find me on" :linksObject="linksObject" />
     </div>
 </template>
 
@@ -18,6 +18,7 @@ import PageHeader from "@/components/PageHeader.vue";
 import GenericSwitch from "@/components/GenericSwitch.vue";
 import GeneralSection from "@/components/GeneralSection.vue";
 import ButtonSection from "@/components/ButtonSection.vue";
+import SectionGrid from "@/components/SectionGrid.vue";
 
 // libraries
 import { Head } from "@vueuse/head";
@@ -34,29 +35,27 @@ export default {
         Head,
         GeneralSection,
         ButtonSection,
+        SectionGrid,
     },
     data() {
         return {
-            markdown: `# Enchanted Vertical Slabs - BetterEnd Edition
-A simple, vanilla-like mod that adds BetterEnd vertical slabs to Minecraft. They can be crafted the same way a normal slab can in a crafting table just vertically instead of horizontally. You do not need [the main mod](https://github.com/Enchanted-Games/vertical-slabs) installed though it is recommended. You must install BetterEnd alongside *Enchanted Vertical Slabs - BetterEnd Edition* otherwise the vertical slabs will not show up correctly. This mod is a fabric mod that requires [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api) to function.
+            markdown: `# Enchanted Games
+Easy access to all my projects and socials`,
 
- - Any BetterEnd vertical slabs made in v1.3 of the main mod may not be compatible with *Enchanted Vertical Slabs - BetterEnd Edition*. Please make a backup if you are planning on upgrading.
- - The seperating will make the mod easier to maintain and also fixes some issues with error spam in the logs. It will also make it easier to create more compatibility mods in the future.
-
-## Some bugs fixed in the seperating:
-- Some blocks including Neon Cactus Slabs and Smaragdant Slabs now have correct textures and block properties (light levels and sounds)
-`,
-            linksObject: [
-                { src: "https://media.discordapp.net/attachments/930130561706622999/937762431105658930/unknown.png?width=829&height=466", desc: "Link1" },
-                { src: "https://media.discordapp.net/attachments/930130561706622999/937762775525101608/unknown.png?width=829&height=466", desc: "Link2" },
-                { src: "https://media.discordapp.net/attachments/930130561706622999/930133941451653180/unknown.png?width=467&height=467", desc: "Link3" },
+            projectCategories: [
+                { slug: "minecraft-projects.html", src: "/static/project_icons/minecraft_java_lowres.png", title: "Minecraft Projects", description: "All my Minecraft Projects for both Java and Bedrock editions", lastUpdated: null },
+                { slug: "generator/blockdesigner.html", src: "https://bd.enchanted.games/favicon.ico", title: "Minecraft Block Designer", description: "Create thounsands of blocks in vanilla Minecraft with just one command and a resource pack.", lastUpdated: null },
+                { slug: "other-projects.html", src: "/static/project_icons/other-projects.png", title: "Other Projects", description: "All my other projects are here. (FireFox themes, Aseprite themes, etc.)", lastUpdated: null },
             ],
-            imagesObject: [
-                { src: "https://enchanted.games/images/mods/evs-betterend/slabs.png", desc: "Slabs" },
-                { src: "https://enchanted.games/images/mods/evs-betterend/slabs-inv.png", desc: "Slabs in inventory" },
-                { src: "https://media.discordapp.net/attachments/930130561706622999/930133841836933200/unknown.png?width=467&height=467", desc: "fire" },
-                { src: "https://media.discordapp.net/attachments/930130561706622999/937762775525101608/unknown.png?width=829&height=466", desc: "cave" },
-                { src: "https://media.discordapp.net/attachments/944309605234778173/972632200589738014/blockdesignerbutton.png", desc: "second description" },
+
+            linksObject: [
+                { src: "https://youtube.com/EnchantedGames", desc: "YouTube" },
+                { src: "https://discordapp.com/users/537356314578386995", desc: "ioblackshaw#8695" },
+                { src: "https://github.com/Enchanted-Games", desc: "GitHub" },
+                { src: "https://www.planetminecraft.com/member/enchanted_games/", desc: "PlanetMinecraft" },
+                { src: "https://modrinth.com/user/q7Pixh4Q", desc: "Modrinth" },
+                { src: "https://www.curseforge.com/members/enchanted_games/projects", desc: "CurseForge" },
+                { src: "https://mcpedl.com/user/enchanted-games/", desc: "MCPEDL" },
             ],
         };
     },
@@ -75,7 +74,7 @@ A simple, vanilla-like mod that adds BetterEnd vertical slabs to Minecraft. They
 
 <style lang="scss">
 :root {
-    --main-background-image: url(@/assets/images/screenshot.png);
+    --main-background-image: url(@/assets/images/backgrounds/home_small.png);
 }
 img {
     margin: auto;

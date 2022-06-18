@@ -2,7 +2,7 @@
     <div class="general-section" :class="{ expanded: isExpanded, overrideCollapse: canCollapse != 'true' }" v-if="isImageHolder == 'true'">
         <h1>{{ imageHolderTitle }}</h1>
         <p>{{ imageHolderText }}</p>
-        <ul class="image-carousel">
+        <ul class="image-carousel thin-scrollbar">
             <li v-for="(imageObject, index) in imagesObject" :key="index" class="image-carousel-item">
                 <div class="img-container">
                     <img loading="lazy" :src="imageObject.src" alt="" @click="toggleFullscreen" @load="imageLoaded" @error="imageErrored" />
@@ -131,28 +131,14 @@ export default {
     padding: 0;
     margin: 10px;
 
-    display: grid;
-    grid-auto-flow: column;
-    justify-content: space-between;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
 
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     scroll-padding: 0 0;
-
-    // scrollbar styling (standard)
-    scrollbar-color: var(--scrollbar-handle-colour) var(--scrollbar-background-colour);
-    scrollbar-width: thin;
-}
-//scrollbar styling (webkit)
-.image-carousel::-webkit-scrollbar {
-    // override height in reset.scss
-    height: var(--scrollbar-thickness-thin);
-    width: var(--scrollbar-thickness-thin);
-}
-.image-carousel::-webkit-scrollbar-button {
-    // remove arrow buttons
-    display: none;
 }
 
 .image-carousel .image-carousel-item {
@@ -164,6 +150,9 @@ export default {
     max-width: 97%;
     border: 3px solid rgba(0, 0, 0, 0.2);
     position: relative;
+    margin: 5px;
+
+    flex: 0 0 auto;
 
     user-select: none;
     text-align: center;

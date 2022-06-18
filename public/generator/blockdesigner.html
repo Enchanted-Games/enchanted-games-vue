@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta charset="UTF-8" />
+        <title>Block Designer | Enchanted Games</title>
+        <meta property="og:url" content="https://enchanted.games/generator/blockdesigner" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css" />
+        <!-- 'monolith' theme -->
+
+        <meta property="og:title" content="Block Designer | Enchanted Games" />
+        <meta name="robots" content="max-snippet:155" />
+        <meta name="description" content="Create thounsands of blocks in vanilla Minecraft with just one command and a resource pack. Save your blocks and share them with others with a simple link." />
+        <meta property="og:description" content="Create thounsands of blocks in vanilla Minecraft with just one command and a resource pack." />
+        <meta property="og:image" content="https://enchanted.games/images/blockdesigner.png" />
+        <link rel="stylesheet" type="text/css" href="/generator/css/flyout-styles.css" />
+        <link rel="icon" href="/generator/images/blockdesigner.png" />
+        <link rel="stylesheet" type="text/css" href="/generator/css/maingenerator.css" />
+        <link rel="stylesheet" type="text/css" href="/generator/css/blockdesigner.css" />
+        <link rel="stylesheet" type="text/css" href="/generator/css/main.css" />
+    </head>
+    <body>
+        <p class="hidden">Create thounsands of blocks in vanilla Minecraft with just one command and a resource pack. Save your blocks and share them with others with a simple link.</p>
+        <div class="loading-screen">
+            <div class="loading-content">
+                <p id="loading-header" class="loading-header">Incompatible Browser</p>
+                <p id="loading-text" class="loading-text">Please use a modern browser (Google Chrome, FireFox, Microsoft Edge) to use this website.</p>
+                <p id="loading-error" class="loading-error"></p>
+            </div>
+        </div>
+        <header>
+            <div class="header-main-holder">
+                <div class="header-size2">
+                    <div class="header-flex-left">
+                        <a href="/index"><span class="header-logo">Home</span></a>
+                    </div>
+                    <div class="header-flex-right">
+                        <div class="header-settings">
+                            <img draggable="false" onclick="openSettings()" class="header-link-img" src="/images/header/settings.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="header-size3"></div>
+            </div>
+        </header>
+
+        <div id="settingsMenu" class="modal">
+            <!--Settings Modal-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeSettings()" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Settings</h2>
+                </div>
+                <div class="modal-body">
+                    <!-- <div class="content-holder">
+					<p class="modal-switch"><strong>Performance Mode:</strong></p><label class="switch"><input class="togglePerformance" oninput="togglePerformance(this)" autocomplete="off" type="checkbox"><span class="slider round"></span></label>
+				</div>
+                <div class="content-holder">
+                    <p class="modal-text">Reload page for performance mode to be fully active.</p>
+                </div>
+				<p class="modal-break"></p>-->
+                    <p class="modal-text" style="font-weight: bold">Block Designer Options</p>
+                    <p class="modal-break-weak"></p>
+                    <div class="content-holder">
+                        <span class="linkBtn" onclick="openModal('#confirmDeleteAllModal');closeSettings();playClickSound(this);">Delete all Saved Blocks</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--Modal 1 end-->
+
+        <div id="modal3" class="modal">
+            <!--Modal 3-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#modal3')" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Block Preview</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">Why a spawner?</p>
+                    <p class="modal-text">If you don't pick a texture for the first layer you will see a spawner in-game as this technique of adding blocks uses a spawner as a base. Learn more in <a href="https://youtu.be/pEhcB5gmOK0" target="_blank" class="general-link">this video</a> by SimplySarc</p>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Rotation controls</p>
+                    <p class="modal-text">The rotation controls <strong>do not</strong> change the rotation of your block in-game, they are simply there so you can get a better view of your block.</p>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!-- modal 3 end -->
+
+        <div id="newMinorVerModal" class="modal">
+            <!--Modal update-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#newMinorVerModal')" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">New in v3.2.1</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">Updated for 1.18</p>
+                    <p class="modal-text">The generator now works with 1.18. You do not need to update the resourcepack as it has not changed.</p>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--new minor update modal end-->
+
+        <!-- new update modal -->
+        <div id="modalupdate2" class="modal">
+            <!--Modal update-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#modalupdate2');" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">What's new in v4.0?</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">New Textures!</p>
+                    <p class="modal-text">4 have been added for layer 1</p>
+                    <p class="modal-text">New Ancient Debris Model, Brown Mushroom Block, Bookshelf Backs, Pumpkin</p>
+                    <p class="modal-break-weak"></p>
+                    <p class="modal-text">5 have been added for layers 2 and 3</p>
+                    <p class="modal-text">Bookshelf Books (2 variants), Red Mushroom Spots, Old Emerald Block, Old Chiselled Quartz</p>
+
+                    <p class="modal-break"></p>
+
+                    <p class="modal-text" style="font-weight: bold">UI updates</p>
+                    <p class="modal-text">The UI has been given a fresh new look, throughout the website, that is inspired by the new Minecraft Bedrock UIs.</p>
+                    <p class="modal-break"></p>
+
+                    <p class="modal-text" style="font-weight: bold">Updated "Saved Blocks" menu</p>
+                    <p class="modal-text">The "Saved Blocks" menu now shows the block name, block lore and formatting.</p>
+                    <p class="modal-text">Saved blocks are no longer stored in your browser cookies meaning more blocks can be saved.</p>
+                    <p class="modal-break"></p>
+
+                    <p class="modal-text" style="font-weight: bold">Editing Menu Changes</p>
+                    <p class="modal-text">The editing menu in the "Saved Blocks" screen has been replaced with a simpler "More Options" menu. In this options menu you can Load, Share or Generate the command for a block you have saved. Click the 3 dots next to a block in the "Saved Blocks" to open the "More Options" menu.</p>
+                    <p class="modal-break"></p>
+
+                    <p class="modal-text" style="font-weight: bold">Block Loading</p>
+                    <p class="modal-text">You can now easily load blocks without having to click on a URL. Simply click the "Load Block" button, select "From a Shared Block Link" and paste in the block link.</p>
+                    <p class="modal-text">There is also a random block option where you can generate a truly random block or randomly pick from a list of preset blocks.</p>
+                    <p class="modal-break"></p>
+
+                    <p class="modal-text" style="font-weight: bold">Loading from CodeCrafteds Block Designer</p>
+                    <p class="modal-text">You can now load blocks from <a target="_blank" class="general-link" href="http://codecrafted.net/blockdesigner">CodeCrafteds Block Designer</a>. Click the "Load Block" button, select "From CodeCrafted Block Designer" and paste in a block link from their Block Designer. This is still experimental so expect some bugs.</p>
+                    <p class="modal-break"></p>
+
+                    <p class="modal-text" style="font-weight: bold">New context menu and tooltips</p>
+                    <p class="modal-text">Right clicking on the Block Preview will show a context menu with some quick options. This makes it easier to switch to a certain layer or save the block, for example. (May not show up on some devices)</p>
+                    <p class="modal-break"></p>
+
+                    <p class="modal-text" style="font-weight: bold">Complete rewrite (again)</p>
+                    <p class="modal-text">The Block Designer has been rewritten to use some more modern features and is now overall more stable. This will also enable bigger possibilities for new features.</p>
+                    <p class="modal-break"></p>
+
+                    <p class="modal-text" style="font-weight: bold">Small Changes</p>
+                    <p class="modal-text">Auto block naming has been removed.</p>
+                    <p class="modal-text">Colour pickers now use a different library.</p>
+                    <p class="modal-text">Many instability and bug fixes.</p>
+                    <p class="modal-text">Fixed a memory leak involving the Enchantment Glint renderer.</p>
+                    <p class="modal-text">Fixed a lot of visual bugs that could sometimes show when rendering blocks.</p>
+                    <p class="modal-break"></p>
+
+                    <p class="modal-text" style="font-weight: bold">Patch v4.0.1</p>
+                    <p class="modal-text" style="opacity: 0.7">You do not need to update the Resource Pack for patch updates.</p>
+                    <p class="modal-text">Importing blocks from a text file now adds them above other saved blocks.</p>
+                    <p class="modal-text">Emojis can no longer be added in the block name or lore.</p>
+
+                    <p class="modal-break-weak"></p>
+
+                    <p class="modal-text" style="font-weight: bold">Patch v4.0.2</p>
+                    <p class="modal-text" style="opacity: 0.7">You do not need to update the Resource Pack for patch updates.</p>
+                    <p class="modal-text">Updated Resource Pack Link and added download instructions.</p>
+                    <p class="modal-text">Updated the Help Menu to no longer reference features from v3.</p>
+                    <p class="modal-text">Slightly updated the look of a few elements.</p>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--new update modal end-->
+
+        <!-- credits modal -->
+        <div id="creditmodal" class="modal">
+            <!--Modal update-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#creditmodal');" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">All credits for the Block Designer</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">Original BlockDesigner by CodeCrafted</p>
+                    <p class="modal-text">Visit them at <a href="https://codecrafted.net" target="_blank" class="general-link">codecrafted.net</a></p>
+                    <p class="modal-text">or their <a href="https://codecrafted.net/blockdesigner" target="_blank" class="general-link">Block Designer</a> which inspired this one.</p>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Original concept by SimplySarc</p>
+                    <p class="modal-text">Watch their video <a href="https://youtu.be/pEhcB5gmOK0" target="_blank" class="general-link">here</a></p>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Libraries Used</p>
+                    <p class="modal-text"><a href="https://jscolor.com/" target="_blank" class="general-link">JSColor</a> - Colour pickers</p>
+                    <p class="modal-text"><a href="https://atomiks.github.io/tippyjs/" target="_blank" class="general-link">Tippy.js</a> - Tooltips</p>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Programming</p>
+                    <p class="modal-text">All programming and design of this website was done by me - Enchanted Games</p>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--credits modal end-->
+
+        <div id="modal2" class="modal">
+            <!--Modal 2-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#modal2')" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Download Resource Pack</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">Download Instructions</p>
+                    <p class="modal-text">Click the download button below, you should be directed to a DropBox folder.</p>
+                    <p class="modal-text">Select the pack that has your Minecraft Version at the end. For example: if you are in 1.17 you should click <code>BlockDesignerResources-1.17.zip</code></p>
+                    <p class="modal-text">Then click the grey "Download" button in the top left. You can now install the pack by following the instructions below!</p>
+
+                    <div class="content-holder">
+                        <a target="_blank" class="linkBtn" id="downloadResourcePackLinkButton" onclick="closeModal('#modal2');playClickSound(this);">Download</a>
+                    </div>
+
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Installation Instructions</p>
+                    <p class="modal-text">To install the pack:</p>
+                    <p class="modal-text">Download the pack, open Minecraft Java Edition 1.14 or higher.</p>
+                    <p class="modal-text">Go to <strong>Options > Resource Packs > Open Pack Folder</strong> and drag in the pack from your downloads folder. <strong>It will be a .zip file, you don't need to unzip it!</strong></p>
+                    <p class="modal-text">You are now ready to start creating Custom Blocks!</p>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--Modal 2 end-->
+
+        <div id="modal8" class="modal">
+            <!--Modal 8-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#modal8')" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Saved Blocks</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="export-saved-blocks-container">
+                        <button class="stick-top stick-right" id="exportSavedBlocksButton" title="Export your saved blocks" aria-title="Export your saved blocks"></button>
+                        <button class="stick-top stick-left" id="savedBlocksMenuInfoButton" onclick="closeModal('#modal8');openModal('#modal11')" title="Saved blocks menu info" aria-title="Saved blocks menu info"></button>
+                    </div>
+                    <div class="content-holder">
+                        <div class="modal-text" style="font-weight: bold">Save a block</div>
+                        <div class="modal-text">Clicking the button below will add the current block to the Saved Blocks List</div>
+                        <span class="linkBtn" id="saveCurrentBlockButton" onclick="playClickSound(this);">Save Current Block</span>
+                    </div>
+
+                    <div class="saved-holder-old">
+                        <div class="saved-item">
+                            <div class="info-holder">
+                                <p class="saved-p name">Any blocks that you save will appear below</p>
+                            </div>
+                        </div>
+                        <div class="saved-holder">
+                            <!-- gets filled in by saved-blocks-menu.mjs -->
+                        </div>
+                    </div>
+                    <div class="saved-holder-new hidden">
+                        <!--<div class="saved-item" onclick="closeModal('#modal8');openModal('#modal11')">
+                        <div class="info-holder">
+                            <p class="saved-p name">Click "Save As" to save current block.</p>
+                            <p class="saved-p info"><span id="saveInfoBtn">Click me for extra Info</span></p>
+                        </div>
+                    </div>-->
+                        <div class="MCUIinvBackground">
+                            <div class="MCUIinvContainer">
+                                <p class="MCUIinvHeader">Inventory</p>
+                                <div class="saved-holder-mcui"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--Modal 8 end-->
+
+        <div id="importOrExportMenu" class="modal">
+            <!--export blocks modal-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#importOrExportMenu'),openModal('#modal8')" class="backBtn">&LessLess;</span>
+                    <h2 class="modal-header">Export or Import Blocks</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">Exporting Blocks</p>
+                    <p class="modal-text">Export your Saved Blocks as a text file to keep as a backup or to share with someone.</p>
+                    <div class="content-holder">
+                        <span class="linkBtn" onclick="playClickSound(this);closeModal('#importOrExportMenu'),openModal('#exportBlocksModal')">Export Blocks</span>
+                    </div>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Importing Blocks</p>
+                    <p class="modal-text">Import your Saved Blocks from a text file.</p>
+                    <div class="content-holder">
+                        <span class="linkBtn" onclick="playClickSound(this);closeModal('#importOrExportMenu'),openModal('#importBlocksModal')">Import Blocks</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <div id="importBlocksModal" class="modal">
+            <!--export blocks modal-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#importBlocksModal'),openModal('#importOrExportMenu')" class="backBtn">&LessLess;</span>
+                    <h2 class="modal-header">Import Blocks</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">Import your Saved Blocks from a text file</p>
+                    <p class="modal-text">Here you can import your Saved Blocks from a text file. If you do not know where to get this file, click the back button above and click "Export Blocks"</p>
+                    <p class="modal-break"></p>
+
+                    <div class="content-holder">
+                        <input autocomplete="off" type="file" accept=".txt" class="linkBtn" id="importSavedBlocksFromTextFile" onclick="playClickSound(this);" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <div id="exportBlocksModal" class="modal">
+            <!--export blocks modal-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#exportBlocksModal'),openModal('#importOrExportMenu')" class="backBtn">&LessLess;</span>
+                    <h2 class="modal-header">Export Blocks</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">Export your Saved Blocks as a text file</p>
+                    <p class="modal-text">The purpose of exporting your Saved Blocks is so that you can keep a backup of them or move them to a different browser. You can also share multiple blocks with someone by giving them the text file.</p>
+                    <p class="modal-break"></p>
+
+                    <div class="content-holder">
+                        <span class="linkBtn" id="downloadSavedBlocksTextFile" onclick="playClickSound(this);">Download Text File</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--export blocks modal End-->
+
+        <div id="modal9" class="modal">
+            <!--Modal 9-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#modal9')" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Save This Block</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">This name and comment will only show up in the saved blocks menu.</p>
+                    <span class="modal-input-wrapper"
+                        ><p style="font-weight: bold" class="modal-text">Name&nbsp;</p>
+                        <input maxlength="50" type="text" class="modal-text modal-input save-name-holder-modal" autocomplete="off" placeholder="Save Menu Name"
+                    /></span>
+                    <span class="modal-input-wrapper"
+                        ><p style="font-weight: bold" class="modal-text">Comment&nbsp;</p>
+                        <input maxlength="50" type="text" class="modal-text modal-input save-comment-holder-modal" autocomplete="off" placeholder="Optional Comment"
+                    /></span>
+                    <p class="modal-break"></p>
+                    <div class="content-holder"><span class="saveBlockBtn linkBtn" onclick="playClickSound(this);">Save Block</span></div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--Modal 9 end-->
+
+        <div id="modal10" class="modal">
+            <!--Modal 10-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#modal10')" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Help</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">Info</p>
+                    <p class="modal-text">This Block Designer is intended to be used with Minecraft 1.18 but can be used in any version from 1.14 to the newest versions.</p>
+                    <p class="modal-text">Every block you create can have up to 3 different layers. Each layer can be assigned a colour, texture and enchant glint.</p>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Layers</p>
+                    <p class="modal-text">To select a texture click one of the images to the left and give it a colour or enchant glint by using the tools above it. To change what layer you are currently editing, click <span class="text-icon">C</span> or <span class="text-icon">B</span> buttons or right click on the Block Preview.</p>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Block Name / Lore</p>
+                    <p class="modal-text">You can edit the block name by clicking <span class="text-icon">C</span> or <span class="text-icon">B</span> until you get to "Block Options" or by right clicking on the Block Preview. Here you can edit the block name and style by giving it a colour, making it bold etc. You can also change the block lore, though it can't be styled.</p>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Generating the Command</p>
+                    <p class="modal-text">To get your block in Minecraft, click "Generate Command", copy it, open Minecraft and paste the command into a command block. Power it and you will be given a new command block that will become your block when placed!</p>
+                    <p class="modal-text">If you are getting spam in the chat, type <code data-auto-select>/gamerule commandBlockOutput false</code> into the chat.</p>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Sharing</p>
+                    <p class="modal-text">To share a block, click "Share Block", copy the link and send it to someone you want to share your block with!</p>
+                    <p class="modal-text">You can also share by clicking "Saved Blocks", clicking the <span class="text-icon-new image-invert-theme" style="background-image: var(--bd-more-icon)">&nbsp;</span> More Options button to the right of the block you want to share, then click "Share"</p>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Saving</p>
+                    <p class="modal-text">To save a block click "Saved Blocks", then "Save Current Block". Your block will now be saved until you delete it.</p>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--Modal 10 end-->
+
+        <div id="modal11" class="modal">
+            <!--Modal 11-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#modal11');openModal('#modal8')" class="backBtn">⪡</span>
+                    <h2 class="modal-header">Save Menu Info</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">Block Options</p>
+                    <p class="modal-text">Press the <span class="text-icon-new" style="background-image: var(--bd-more-icon)">&nbsp;</span> More Options button to the right of a block. This will bring up a second menu where you can either load the block to edit it, generate the command for the block or share the block. You can also move a block to the top or bottom of the Saved Blcoks list.</p>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Deleting a block</p>
+                    <p class="modal-text">To delete a block from the Saved Blocks menu, click the <span class="text-icon-new" style="background-image: var(--bd-more-icon)">&nbsp;</span> More Options button to the right of it and click the Delete button. This action cannot be undone!</p>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Block Exporting</p>
+                    <p class="modal-text">You can do this by clicking the <span class="text-icon-new image-invert-theme" style="background-image: var(--bd-export-import-icon)">&nbsp;</span> Export/Import button in the top right of the "Saved Blocks" menu. Click the "Export Blocks" button to get a text file containing all your currently saved blocks.</p>
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold">Block Importing</p>
+                    <p class="modal-text">You can do this by clicking the <span class="text-icon-new image-invert-theme" style="background-image: var(--bd-export-import-icon)">&nbsp;</span> Export/Import button in the top right of the "Saved Blocks" menu. Click the "Import Blocks" button and select a valid text file containing your blocks. You can also import other peoples blocks if they send you a text file containing them.</p>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal13" class="modal">
+            <!--Modal 13-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#modal13');" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Before you continue...</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">You need to install or update the resource pack</p>
+                    <p class="modal-text">The resource pack is needed for your blocks to show up in-game. It doesn't replace anything so you won't even notice it.</p>
+                    <p class="modal-break"></p>
+                    <div class="content-holder">
+                        <span class="linkBtn" id="whatsNew_openResourcePack" onclick="playClickSound(this);">Resource Pack</span>
+                        <span class="linkBtn" id="whatsNew_openPatchNotes" onclick="playClickSound(this);">See what's new</span>
+                    </div>
+                    <p class="modal-break-weak"></p>
+                    <div class="content-holder">
+                        <span class="linkBtn" onclick="playClickSound(this);closeModal('#modal13')">I already have the Resource Pack</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--Modal 13 end-->
+
+        <div id="commandmodal" class="modal">
+            <!--Command modal-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#commandmodal')" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Command</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <p class="modal-switch">
+                            <strong>Minecraft Version:</strong>
+                            <select autocomplete="off" oninput="manageMCverCmd(this)" class="general-dropdown" id="command-version">
+                                <!--options generated in core.js-->
+                                <option data-mc-version="1.18" value="0">1.18 to 1.19</option>
+                                <option data-mc-version="1.16" value="1">1.16 to 1.17.1</option>
+                                <option data-mc-version="1.14" value="2">1.14 to 1.15.2</option>
+                            </select>
+                        </p>
+                    </div>
+
+                    <p class="modal-text">Command for:&nbsp;<span id="command-block-name" style="font-weight: bold"></span></p>
+                    <p class="modal-text" id="command-note"></p>
+                    <div class="content-holder">
+                        <textarea spellcheck="false" onfocus="this.select();" class="modal-area" id="modal-command-area"></textarea>
+                    </div>
+
+                    <div class="content-holder">
+                        <span class="linkBtn" onclick="playClickSound(this);copyFromTextArea('#modal-command-area', '#commandmodal')">Copy to Clipboard</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--Command modal End-->
+
+        <div id="confirmDeleteModal" class="modal">
+            <!--reset block modal-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#confirmDeleteModal')" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Reset Block?</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">Are you sure you want to reset the block?</p>
+                    <p class="modal-text"><strong>Warning:&nbsp;</strong>This will delete the block you are currently editing! Save it first if you wish to keep it</p>
+
+                    <div class="content-holder">
+                        <span class="linkBtn" onclick="playClickSound(this);resetMainBlock()">Reset Block</span>
+                        <span class="linkBtn" onclick="playClickSound(this);closeModal('#confirmDeleteModal')">Cancel</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--reset block modal-->
+
+        <div id="confirmDeleteAllModal" class="modal">
+            <!--delete all modal-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#confirmDeleteAllModal')" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Delete All Saved Blocks?</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">Are you sure you want to delete all your Saved Blocks?</p>
+                    <p class="modal-text"><strong>Warning:&nbsp;</strong>This action can not be undone! Your blocks will be gone FOREVER, please export your blocks before deleting them in case you change your mind later.</p>
+
+                    <div class="content-holder">
+                        <span class="linkBtn" onclick="playClickSound(this);closeModal('#confirmDeleteAllModal')">Cancel</span>
+                    </div>
+                    <p class="modal-break-weak"></p>
+                    <div class="content-holder">
+                        <span class="linkBtn" colour="red" id="deleteAllSavedBlocksButton">Delete All Saved Blocks</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--delete all modal-->
+
+        <div id="sharemodal" class="modal">
+            <!--sharemodal-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#sharemodal')" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Shareable Link</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text">Shareable Link for:&nbsp;<span id="share-block-name" style="font-weight: bold"></span></p>
+                    <div class="content-holder">
+                        <textarea spellcheck="false" onfocus="this.select();" class="modal-area" id="modal-share-area"></textarea>
+                    </div>
+
+                    <div class="content-holder">
+                        <span class="linkBtn" onclick="playClickSound(this);copyFromTextArea('#modal-share-area', '#sharemodal')">Copy to Clipboard</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--sharemodal End-->
+
+        <div id="sharedBlockModal" class="modal">
+            <!--shared block modal-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#sharedBlockModal');" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Shared Block</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <p class="modal-text" style="font-weight: bold">Someone shared a block with you!</p>
+                        <p class="modal-text">Choose whether you want to load the block or ignore it below. (if you ignore the block you can still load it by clicking the "Load Block" button and selecting "Shared Block")</p>
+                    </div>
+                    <div class="modal-split">
+                        <div class="modal-split-child modal-split-1">
+                            <span class="width-100p modal-input-wrapper">
+                                <span class="modal-text force-left-cancelable">Block Name&nbsp;</span>
+                                <span class="modal-text modal-name-container user-select-none wrap-anywhere" id="shared-block-name"></span>
+                            </span>
+                            <div class="edit-menu-deco flex-break"></div>
+                            <span class="width-100p modal-input-wrapper">
+                                <span class="modal-text force-left-cancelable">Block Lore&nbsp;&nbsp;</span>
+                                <span class="modal-text modal-name-container user-select-none wrap-anywhere" id="shared-block-comment"></span>
+                            </span>
+                        </div>
+                        <div class="modal-split-child modal-split-2">
+                            <div class="cube-preview-container center-when-mobile" id="shared-block-preview-container"></div>
+                        </div>
+                    </div>
+
+                    <div class="content-holder">
+                        <span id="loadSharedBlock" class="linkBtn" onclick="playClickSound(this);">Load Block</span>
+                        <span id="ignoreSharedBlock" class="linkBtn" onclick="playClickSound(this);">Ignore Block</span>
+                        <div class="flex-break"></div>
+                        <div class="empty-spacer"></div>
+                        <div class="edit-menu-deco flex-break"></div>
+                        <div class="empty-spacer"></div>
+                        <div class="flex-break"></div>
+                        <p class="modal-text">Only applies until someone shares another block URL with you. <br />Clicking this button will also prevent you from loading the block from the "Load Block" menu</p>
+                        <span id="loadBlockBtnEdit" class="linkBtn" onclick="playClickSound(this);">Ignore and don't show message again</span>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--shared block modal end-->
+
+        <div id="savedBlockModal" class="modal">
+            <!--shared block modal-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#savedBlockModal');openModal('#modal8');" class="backBtn">&LessLess;</span>
+                    <h2 class="modal-header" id="savedBlockModalTitle">modal.title</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <p class="modal-text" style="font-weight: bold">What would you like to do with this block?</p>
+                        <p class="modal-text">Choose whether you want to share the block, generate the command or load it to edit it.</p>
+                    </div>
+                    <div class="modal-split">
+                        <div class="modal-split-child modal-split-1">
+                            <span class="width-100p modal-input-wrapper">
+                                <span class="modal-text force-left-cancelable">Block Name&nbsp;</span>
+                                <span class="modal-text modal-name-container user-select-none wrap-anywhere" id="saved-block-name"></span>
+                            </span>
+                            <div class="edit-menu-deco flex-break"></div>
+                            <span class="width-100p modal-input-wrapper">
+                                <span class="modal-text force-left-cancelable">Block Lore&nbsp;&nbsp;</span>
+                                <span class="modal-text modal-name-container user-select-none wrap-anywhere" id="saved-block-comment"></span>
+                            </span>
+                        </div>
+                        <div class="modal-split-child modal-split-2">
+                            <div class="cube-preview-container center-when-mobile" id="saved-block-preview-container"></div>
+                        </div>
+                    </div>
+
+                    <div class="content-holder">
+                        <span id="loadSavedBlock" class="linkBtn" onclick="playClickSound(this);">Load Block</span>
+                        <span id="generateCmdSavedBlock" class="linkBtn" onclick="playClickSound(this);">Generate Command</span>
+                        <span id="shareSavedBlock" class="linkBtn" onclick="playClickSound(this);">Share</span>
+                        <div class="flex-break"></div>
+                        <span id="moveSavedBlockToTop" class="linkBtn" onclick="playClickSound(this);">Move to Top</span>
+                        <span id="moveSavedBlockToBottom" class="linkBtn" onclick="playClickSound(this);">Move to Bottom</span>
+                        <div class="empty-spacer"></div>
+                        <div class="edit-menu-deco flex-break"></div>
+                        <div class="empty-spacer"></div>
+                        <p class="modal-text"><strong>Warning:</strong> This action cannot be undone. Press and hold the button below to delete the block</p>
+                        <div class="flex-break"></div>
+                        <span id="deleteSavedBlock" colour="red" class="linkBtn">Delete block from Saved Blocks list</span>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--shared block modal end-->
+
+        <div id="importModal" class="modal">
+            <!--import modal-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeModal('#importModal')" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Load BLock</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="content-holder">
+                        <p class="modal-switch">
+                            <strong>Load block:</strong>
+                            <select autocomplete="off" class="general-dropdown" id="import-mode-dropdown">
+                                <option data-import-mode="randomBlock" value="0">From random list</option>
+                                <option data-import-mode="pastedUrl" value="1">From a Shared Block Link</option>
+                                <option data-import-mode="codecraftedUrl" value="2">From CodeCrafted Block Designer</option>
+                            </select>
+                        </p>
+                    </div>
+
+                    <span id="importMenu-pasteURL"
+                        ><p class="modal-text" id="import-note"></p>
+                        <p class="modal-text">Paste URL below:&nbsp;</p>
+                        <div class="content-holder">
+                            <textarea spellcheck="false" onfocus="this.select();" class="modal-area" id="modal-import-area" style="height: 50px"></textarea>
+                        </div>
+                    </span>
+                    <br />
+                    <span id="importMenu-randomList"
+                        ><p class="modal-text">This will load a random block from either a preset list or a truly random configuration.</p>
+                        <p class="modal-switch">
+                            <strong>Load:</strong>
+                            <select autocomplete="off" class="general-dropdown" id="import-random-block-dropdown">
+                                <option data-random-block-type="random" value="0">Block from preset list</option>
+                                <option data-random-block-type="trueRandom" value="1">Truly random block</option>
+                            </select>
+                        </p>
+                        <br />
+                    </span>
+                    <p class="modal-text"><strong>Warning:&nbsp;</strong>This will delete the block you are currently editing! Save it first if you wish to keep it</p>
+
+                    <div class="content-holder">
+                        <span class="linkBtn" id="blockImportButton" onclick="playClickSound(this);">Load Block</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--import modal End-->
+
+        <div class="container-for-all">
+            <span class="corner-text bottom-left" onclick="openModal('#creditmodal')" style="cursor: pointer">Click to see full credits</span>
+
+            <div class="tools-wrapper">
+                <p class="bd-version">Block Designer</p>
+                <div class="tools-container">
+                    <span class="linkBtn" onclick="playClickSound(this);openModal('#modal2')">Resource Pack</span>
+                    <span class="linkBtn" id="savedBlocksMenuButton" onclick="playClickSound(this);openModal('#modal8')">Saved Blocks</span>
+                    <span title="" class="importBlockBtn linkBtn" onclick="playClickSound(this);">Load Block</span>
+                    <span class="linkBtn" onclick="playClickSound(this);openModal('#modal10')">Help</span>
+                    <span class="linkBtn" onclick="playClickSound(this);openModal('#modalupdate2')">What's new?</span>
+                </div>
+            </div>
+
+            <div class="wrapper">
+                <div class="MCUIcontainer">
+                    <div class="MCUIheader">
+                        <div class="layerselection">
+                            <span tabindex="0" onclick="layerSwitch(this)" class="decreasearrow">C</span>
+                            <h3 class="MCUIheadertitle" id="layerselectiontitle">Layer 1</h3>
+                            <span tabindex="0" onclick="layerSwitch(this)" class="increasearrow force-right">B</span>
+                        </div>
+                    </div>
+                    <div class="MCUIbackground">
+                        <div id="layer1options" class="">
+                            <div class="MCUIindent">
+                                <div class="box-section">
+                                    <div class="nameHolder"><p class="text">Layer 1 Options</p></div>
+                                    <div class="content-holder">
+                                        <p class="text">Colour Tint&nbsp;</p>
+                                        <input class="colour-input" autocomplete="off" name="" value="#ffffff" id="colour-picker-layer1" data-jscolor="{}" />
+                                    </div>
+                                    <div class="content-holder">
+                                        <p class="text">Enchantment Glint&nbsp;</p>
+                                        <label class="switch"><input id="glint1" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="MCUIspacer"></div>
+                            <div class="MCUIindent">
+                                <div class="nameHolder"><p class="text">Texture</p></div>
+                                <div id="layer1textures" data-layer-to-draw="layer1" data-colour-picker-id="colour-picker-layer1" class="content-holder"></div>
+                            </div>
+                        </div>
+
+                        <div id="layer2options" class="hidden">
+                            <div class="MCUIindent">
+                                <div class="box-section">
+                                    <div class="nameHolder"><p class="text">Layer 2 Options</p></div>
+                                    <div class="content-holder">
+                                        <p class="text">Colour Tint&nbsp;</p>
+                                        <input class="colour-input" autocomplete="off" name="" value="#ffffff" id="colour-picker-layer2" data-jscolor="{}" />
+                                    </div>
+                                    <div class="content-holder">
+                                        <p class="text">Enchantment Glint&nbsp;</p>
+                                        <label class="switch"><input id="glint2" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="MCUIspacer"></div>
+                            <div class="MCUIindent">
+                                <div class="nameHolder"><p class="text">Texture</p></div>
+                                <div id="layer2textures" data-layer-to-draw="layer2" data-colour-picker-id="colour-picker-layer2" class="content-holder"></div>
+                            </div>
+                        </div>
+
+                        <div id="layer3options" class="hidden">
+                            <div class="MCUIindent">
+                                <div class="box-section">
+                                    <div class="nameHolder"><p class="text">Layer 3 Options</p></div>
+                                    <div class="content-holder">
+                                        <p class="text">Colour Tint&nbsp;</p>
+                                        <input class="colour-input" autocomplete="off" name="" value="#ffffff" id="colour-picker-layer3" data-jscolor="{}" />
+                                    </div>
+                                    <div class="content-holder">
+                                        <p class="text">Enchantment Glint&nbsp;</p>
+                                        <label class="switch"><input id="glint3" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="MCUIspacer"></div>
+                            <div class="MCUIindent">
+                                <div class="nameHolder"><p class="text">Texture</p></div>
+                                <div id="layer3textures" data-layer-to-draw="layer3" data-colour-picker-id="colour-picker-layer3" class="content-holder"></div>
+                            </div>
+                        </div>
+
+                        <div id="blockoptions" class="hidden">
+                            <div class="MCUIindent">
+                                <div class="nameHolder"><p class="text">Block Name</p></div>
+                                <div class="content-holder">
+                                    <div class="content-holder">
+                                        <p class="text" style="font-weight: normal">Type in the input below to change the block name</p>
+                                        <br />
+                                    </div>
+                                    <div class="name-final-holder">
+                                        <input type="text" class="mc-name-input" id="name-final-input" modifiedbyuser="false" maxlength="75" name="name-final-input" autocomplete="off" value="Your Custom Block" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="MCUIspacer"></div>
+                            <div class="MCUIindent">
+                                <div class="nameHolder"><p class="text">Name Formatting</p></div>
+                                <div class="content-holder">
+                                    <p class="text">Colour&nbsp;</p>
+                                    <input class="colour-input" autocomplete="off" name="" value="#ffffff" id="colour-picker-blockName" data-jscolor="{}" />
+                                </div>
+                                <div class="content-holder">
+                                    <p class="text"><strong>Bold</strong></p>
+                                    <label class="switch"><input id="name-bold" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                                </div>
+                                <div class="content-holder">
+                                    <p class="text" style="text-decoration: wavy"><i>Italic</i></p>
+                                    <label class="switch"><input id="name-italic" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                                </div>
+                                <div class="content-holder">
+                                    <p class="text" style="text-decoration: line-through">Strike</p>
+                                    <label class="switch"><input id="name-strike" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                                </div>
+                                <div class="content-holder">
+                                    <p class="text" style="text-decoration: underline">Underline</p>
+                                    <label class="switch"><input id="name-underline" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                                </div>
+                            </div>
+                            <div class="MCUIspacer"></div>
+                            <div class="MCUIindent">
+                                <div class="nameHolder"><p class="text">Block Lore (optional)</p></div>
+                                <div class="content-holder">
+                                    <div class="content-holder">
+                                        <p class="text" style="font-weight: normal">Type in the input below to change the block lore</p>
+                                        <br />
+                                    </div>
+                                    <div class="name-final-holder">
+                                        <input type="text" class="mc-name-input MCUIloreText" id="blockLore-final-input" modifiedbyuser="false" maxlength="150" name="name-final-input" autocomplete="off" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="overallBlockoptions" class="hidden">
+                            <div class="MCUIindent">
+                                <div class="nameHolder"><p class="text">Block Outline</p></div>
+                                <div class="content-holder">
+                                    <p class="text" style="font-weight: normal; text-align: center">Add a glowing outline around the edges of the block, similar to an entity with the Glowing Effect.</p>
+                                    <br />
+                                </div>
+                                <div class="content-holder">
+                                    <p class="text"><strong>Glowing Outline</strong></p>
+                                    <label class="switch"><input id="block-glowing-outline" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                                </div>
+                            </div>
+                            <div class="MCUIspacer"></div>
+                            <div class="MCUIindent">
+                                <div class="nameHolder"><p class="text">Command Block Options</p></div>
+                                <div class="content-holder">
+                                    <p class="text"><strong>Bold</strong></p>
+                                    <label class="switch"><input id="name-bold" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                                </div>
+                                <div class="content-holder">
+                                    <p class="text" style="text-decoration: wavy"><i>Italic</i></p>
+                                    <label class="switch"><input id="name-italic" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                                </div>
+                                <div class="content-holder">
+                                    <p class="text" style="text-decoration: line-through">Strike</p>
+                                    <label class="switch"><input id="name-strike" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                                </div>
+                                <div class="content-holder">
+                                    <p class="text" style="text-decoration: underline">Underline</p>
+                                    <label class="switch"><input id="name-underline" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                                </div>
+                            </div>
+                            <div class="MCUIspacer"></div>
+                            <div class="MCUIindent">
+                                <div class="nameHolder"><p class="text">Block Lore (optional)</p></div>
+                                <div class="content-holder">
+                                    <div class="content-holder">
+                                        <p class="text" style="font-weight: normal">Type in the input below to change the block lore</p>
+                                        <br />
+                                    </div>
+                                    <div class="name-final-holder">
+                                        <input type="text" class="mc-name-input MCUIloreText" id="blockLore-final-input" modifiedbyuser="false" maxlength="150" name="name-final-input" autocomplete="off" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="MCUIcontainer">
+                    <div class="MCUIheader">
+                        <h3 class="MCUIheadertitle">Preview / Generate</h3>
+                        <span class="hiddenarrow">B</span>
+                    </div>
+                    <div class="MCUIbackground">
+                        <div class="MCUIindent">
+                            <div class="nameHolder">
+                                <p id="preview-error" class="text">Preview</p>
+                            </div>
+
+                            <div class="final-preview-container">
+                                <div class="final-preview-left"></div>
+                            </div>
+
+                            <div class="content-holder">
+                                <p class="text">Preview Controls</p>
+                                <div class="flex-break"></div>
+                                <button class="basicBtn" id="mainPreviewRotLeft" title="Rotate the preview Left">Left</button>
+                                <button class="basicBtn" id="mainPreviewRotRight" title="Rotate the preview Right">Right</button>
+                                <button class="basicBtn" id="mainPreviewFlip" title="Flip the preview">Flip</button>
+                                <button class="basicBtn basicBtnRed" id="mainPreviewResetRot" title="Reset preview rotation">Reset Rotation</button>
+                                <button class="basicBtn basicBtnInfo" id="previewInfo" title="Reset preview rotation">?</button>
+                            </div>
+                        </div>
+                        <div class="MCUIspacer"></div>
+                        <div class="MCUIindent">
+                            <div class="nameHolder"><p class="text">Generate</p></div>
+                            <div class="content-holder">
+                                <div class="content-holder flex-holder">
+                                    <span title="Generate the command for Minecraft" class="genCmdBtn linkBtn" onclick="playClickSound(this);">Generate Command</span>
+                                    <span title="Anyone with this link will be able to edit and generate your block" class="genShareBtn linkBtn" onclick="playClickSound(this);">Share Block</span>
+                                    <!-- <span title="load a random preset block" class="randomBlockBtn linkBtn" onclick="playClickSound(this);">Load a random block</span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="hiddenBuffers" class="hidden">
+                        <canvas id="glint-animation" width="112" height="112"></canvas>
+                        <input type="text" id="randomJSColorPicker" />
+                        <img
+                            src="data:image/png;base64,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d3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iCiAgICB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIgogICAgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIgogICAgeG1sbnM6R0lNUD0iaHR0cDovL3d3dy5naW1wLm9yZy94bXAvIgogICAgeG1sbnM6dGlmZj0iaHR0cDovL25zLmFkb2JlLmNvbS90aWZmLzEuMC8iCiAgICB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iCiAgIHhtcE1NOkRvY3VtZW50SUQ9ImdpbXA6ZG9jaWQ6Z2ltcDo4ZWYwOGFiNC1hOTRjLTRhMjgtYmE2NC0yMWIyZGM4YjE5MTEiCiAgIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MThlODQ1NWItNmQ5Yi00YTIyLTkwOTctNGUwMGIxZWQ4ODFhIgogICB4bXBNTTpPcmlnaW5hbERvY3VtZW50SUQ9InhtcC5kaWQ6ZjVlMTU4YWQtMDU0MS00NDczLWFiYTAtNmFmMWUzYjBjMzc2IgogICBkYzpGb3JtYXQ9ImltYWdlL3BuZyIKICAgR0lNUDpBUEk9IjIuMCIKICAgR0lNUDpQbGF0Zm9ybT0iV2luZG93cyIKICAgR0lNUDpUaW1lU3RhbXA9IjE2NTA2NTIwMTExNzIwODAiCiAgIEdJTVA6VmVyc2lvbj0iMi4xMC4zMCIKICAgdGlmZjpPcmllbnRhdGlvbj0iMSIKICAgeG1wOkNyZWF0b3JUb29sPSJHSU1QIDIuMTAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJzYXZlZCIKICAgICAgc3RFdnQ6Y2hhbmdlZD0iLyIKICAgICAgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDo5ZWJiY2U2MC05ZjE3LTQwNDAtOTA2Zi0zMmEzZmJjNjI4YjciCiAgICAgIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkdpbXAgMi4xMCAoV2luZG93cykiCiAgICAgIHN0RXZ0OndoZW49IjIwMjItMDQtMjJUMTk6MjY6NTEiLz4KICAgIDwvcmRmOlNlcT4KICAgPC94bXBNTTpIaXN0b3J5PgogIDwvcmRmOkRlc2NyaXB0aW9uPgogPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8P3hwYWNrZXQgZW5kPSJ3Ij8+NfPYvgAAAAZiS0dEABgAGAAYqIoNogAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+YEFhIaM5xkEG8AACAASURBVHjavL3ZjmRZdqb3rbX3scHNpxgyMiuzKpukRIJqSZAA3VGiCF4KepEmxMdpkhf9JLpqqUHoonUlQGhJ3VRXsTIrMjNmH8zdhrPX0sVax9zc3XyKSiqAQFRWhNtw9rSG//u3/Kv/wf9HGt+5cmxr3hVlpoXnrhyJsUKoFI7EqCgvRFCEL935R4FjlOfARJQ/QfgvxXmNc4awdOMjgjssvPGPwCd31sAHnLk7I5w5gChHOJ9E+YUIBw49cIBxQuErgako/407rxHm4izMOfPGv2tr/p0oopX/2p0zoKPnO4SqyiuHU3OaGJc4S6l8iyDrOf9zGfHF6pz/u5vyq37BD9pxROW5wFG+j2rhS4eFKC8c+iL80vp4T4SZOVYq/1Wp/JkbvzH4iLECTh1UnMV6xb+l5yOVAxXGDkel4xucscRz/SXCEuEIp4jQOwjGuSgvgYkU/gs3XgNzdy6BU2/8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"
+                            id="glint-texture"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            let variable = `true`;
+            if (variable == "true") {
+                document.getElementById("loading-header").innerHTML = 'Loading <p class="loading-holder"><span class="loading-indicator loading-4">.</span><span class="loading-indicator loading-3">.</span><span class="loading-indicator loading-2">.</span><span class="loading-indicator loading-1">.</span><span class="loading-indicator loading-2">.</span><span class="loading-indicator loading-3">.</span><span class="loading-indicator loading-4">.</span></p>';
+                document.getElementById("loading-text").innerText = "";
+                document.getElementById("loading-error").innerHTML = '<label for="loading-progress" id="loading-extra-text" class="loading-extra-text"></label><progress class="loading-progress" max="1" value="0"></progress>';
+                document.querySelector(".loading-screen").style.display = "none";
+            }
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.4.8/jscolor.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+        <script src="https://unpkg.com/tippy.js@6"></script>
+        <script src="/generator/lib/MCUInotifications.js"></script>
+        <script src="/generator/bd-v4/main.mjs" type="module"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+        <script src="/generator/js/core.js"></script>
+    </body>
+</html>

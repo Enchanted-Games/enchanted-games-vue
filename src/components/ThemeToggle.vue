@@ -61,9 +61,3 @@ export default {
     },
 };
 </script>
-
-<style scoped lang="scss">
-.input-switch-container {
-    display: none !important;
-}
-</style>

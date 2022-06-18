@@ -1,12 +1,13 @@
 <template>
     <Head>
         <title>{{ pageTitle }} | Enchanted Games</title>
+        <meta name="description" content="All of Enchanted Game's Resource Packs for Minecraft Bedrock Edition" />
     </Head>
     <PageHeader />
     <div class="main-container">
-        <img class="page-header-image" alt="Page Icon" src="@/assets/logo.png" />
+        <img class="page-header-image" loading="lazy" alt="Page Icon" src="/static/project_icons/minecraft_bedrock.png" />
         <GeneralSection numberID="0" canCollapse="false" :htmlContent="markdownToHTML" />
-        <SectionGrid />
+        <SectionGrid showSearchBar="true" searchBarPlaceholder="Search Projects" :projectViewPath="projectViewPath" :projectsArray="currentProjects" />
     </div>
 </template>
 
@@ -14,9 +15,8 @@
 // custom components
 import Styles from "@/components/Styles.vue";
 import PageHeader from "@/components/PageHeader.vue";
-import GenericSwitch from "@/components/GenericSwitch.vue";
+import SectionGrid from "@/components/SectionGrid.vue";
 import GeneralSection from "@/components/GeneralSection.vue";
-import ButtonSection from "@/components/ButtonSection.vue";
 
 // libraries
 import { Head } from "@vueuse/head";
@@ -42,18 +42,18 @@ export default {
     components: {
         Styles,
         PageHeader,
-        GenericSwitch,
         Head,
         GeneralSection,
-        ButtonSection,
+        SectionGrid,
     },
     data() {
         return {
             projectType: "minecraft-bedrock-resource-pack", // types of projects that will be displayed
+            projectViewPath: "/minecraft-bedrock-resource-packs/view?p=", // base URL for projects to be viewed
             pageTitle: "Minecraft Bedrock Resource Packs",
-            faviconImageSrc: "/favicon.ico",
 
-            markdown: `# Downloading page contents...`,
+            markdown: `# Minecraft Bedrock Edition Resource Packs
+All my Resource Packs for Minecraft Bedrock Edition. (iOS, Android, Windows 10/11, Consoles)`,
             currentProjects: [],
         };
     },
@@ -80,29 +80,47 @@ export default {
 
         const q = query(projectsRef, where("projecttype", "==", this.projectType));
 
+        let projectsArray = [];
+
         getDocs(q)
             .then((e) => {
-                // console.log(e.data());
-                // loop through docs in collection
+                // add data from each doc to an array
                 e.forEach((doc) => {
-                    console.log(doc.id); // get doc name
                     let projectData = doc.data();
 
-                    if (projectData.projectviewstatus == 0) {
+                    projectData.projectId = doc.id;
+
+                    projectsArray.push(projectData);
+                });
+
+                // sort projects array by timestamp it was updated at
+                projectsArray.sort(function (a, b) {
+                    return b["project-date-number"] - a["project-date-number"];
+                });
+
+                // display projects that arent hidden
+                for (let i = 0; i < projectsArray.length; i++) {
+                    if (projectsArray[i].projectviewstatus == 0) {
                         // project should be displayed
                         let dataToDisplay = {
-                            title: projectData["project-title"],
-                            image: projectData["favicon-url"],
+                            slug: projectsArray[i]["projectId"],
+                            src: projectsArray[i]["favicon-url"],
+                            title: projectsArray[i]["project-title"],
+                            description: decodeURIComponent(projectsArray[i]["encoded-short-description"]),
+                            lastUpdated: projectsArray[i]["project-updated-date"],
                         };
 
-                        currentProjects.push(dataToDisplay);
+                        this.currentProjects.push(dataToDisplay);
                     } else {
                         return false;
                     }
-                });
+                }
             })
             .catch((e) => {
-                console.log(e.message);
+                console.error(e);
+                this.currentProjects = null;
+                this.markdown = `# Whoops...
+We were unable to get fetch the projects. Please [Return Home](/index) and try again later.`;
             });
     },
 };
@@ -110,7 +128,7 @@ export default {
 
 <style lang="scss">
 :root {
-    --main-background-image: url(@/assets/images/screenshot.png);
+    --main-background-image: url(@/assets/images/backgrounds/minecraft_bedrock_resourcepacks.png);
 }
 img {
     margin: auto;
