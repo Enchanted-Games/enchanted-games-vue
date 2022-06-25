@@ -1,0 +1,119 @@
+.flyouts-holder {
+  position: fixed;
+  top: 45px;
+  right: 0px;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.flyout-container {
+  position: relative;
+  right: 0px;
+  box-sizing: border-box;
+  min-height: 75px;
+  width: 275px;
+  padding: 10px;
+}
+
+.flyout-background {
+  pointer-events: all;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 75px;
+  display: flex;
+  padding: 10px;
+  --border-style: 5px solid;
+  background-color: var(--theme_background);
+  color: var(--theme_text_colour);
+  border-top: var(--border-style) var(--theme_light_border);
+  border-left: var(--border-style) var(--theme_light_border);
+  border-right: var(--border-style) var(--theme_dark_border);
+  border-bottom: var(--border-style) var(--theme_dark_border);
+  font-family: var(--theme_font_family);
+}
+
+.flyout-image {
+  align-self: center;
+  width: 48px;
+  height: 48px;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: pixelated;
+}
+
+.flyout-text {
+  padding: 0px;
+  margin: 0px;
+  color: var(--theme_text_colour);
+  font-family: var(--theme_font_family);
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: pixelated;
+}
+
+.flyout-text-holder {
+  margin-left: 10px;
+  min-width: 1px;
+}
+
+.flyout-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.flyout-body {
+  font-size: 18px;
+}
+
+.flyout-close {
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-size: 30px;
+  position: absolute;
+  right: 17;
+  top: 6;
+  opacity: 0.8;
+  font-family: Minecraft_ten;
+}
+
+.flyout-close:hover,
+.flyout-close:focus {
+  opacity: 1;
+}
+
+@-webkit-keyframes flyout_out {
+  from {
+    right: 0px;
+  }
+  to {
+    right: -300px;
+  }
+}
+
+@keyframes flyout_out {
+  from {
+    right: 0px;
+  }
+  to {
+    right: -300px;
+  }
+}
+@-webkit-keyframes flyout_in {
+  from {
+    right: -300px;
+  }
+  to {
+    right: 0px;
+  }
+}
+@keyframes flyout_in {
+  from {
+    right: -300px;
+  }
+  to {
+    right: 0px;
+  }
+}/*# sourceMappingURL=flyout-styles.css.map */

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/generator/css/styles.css" />
+        <link rel="stylesheet" href="/generator/css/main.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css" />
+        <!-- 'nano' theme -->
+        <title>GLSL Colours Generator</title>
+        <style>
+            ::selection {
+                color: black;
+            }
+            .colourPreview {
+                width: 30px;
+                height: 30px;
+                top: 7px;
+                position: relative;
+                display: inline-block;
+                font-size: 1;
+            }
+            input {
+                width: 40vmin;
+            }
+            .pickr {
+                display: inline;
+                top: -7px;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div class="header-main-holder">
+                <div class="header-size2">
+                    <div style="display: block; width: 78px" class="header-flex-left">
+                        <a href="../index"><span class="header-logo">Home</span></a>
+                    </div>
+                </div>
+                <div class="header-size3"></div>
+            </div>
+        </header>
+        <div id="settingsMenu" class="modal">
+            <!--Settings Modal-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span onclick="closeSettings()" class="closeBtn">&times;</span>
+                    <h2 class="modal-header">Global Settings</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-text" style="font-weight: bold">These settings apply to the entire website and only this browser.</p>
+                    <p class="modal-break"></p>
+
+                    <div class="content-holder">
+                        <p class="modal-switch"><strong>Light Mode:</strong></p>
+                        <label class="switch"><input class="lightDarkToggle" oninput="toggleLightDark(this)" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                    </div>
+                    <p class="modal-break"></p>
+                    <p class="modal-text"><strong>Themes</strong></p>
+                    <div class="content-holder">
+                        <p class="modal-switch">
+                            <strong>Preset Themes:</strong
+                            ><select autocomplete="off" oninput="presetThemeChange(this)" name="preset-themes" id="preset-themes">
+                                <!--options generated in core.js-->
+                            </select>
+                        </p>
+                    </div>
+
+                    <p class="modal-break"></p>
+                    <p class="modal-text" style="font-weight: bold"><strong>Custom Theme</strong></p>
+                    <div class="content-holder">
+                        <p class="modal-switch"><strong>Use Defaults:</strong></p>
+                        <label class="switch"><input class="useDefaultsToggle" oninput="useDefaults(this)" autocomplete="off" type="checkbox" /><span class="slider round"></span></label>
+                    </div>
+                    <div class="content-holder">
+                        <p class="modal-switch"><strong>Header Border:</strong></p>
+                        <div class="pickr-container header-pickr-c"><div class="header-pickr"></div></div>
+                    </div>
+                    <div class="content-holder">
+                        <p class="modal-switch"><strong>Header Text:</strong></p>
+                        <div class="pickr-container header-text-pickr-c"><div class="header-text-pickr"></div></div>
+                    </div>
+                    <div class="content-holder">
+                        <p class="modal-switch"><strong>Header Text Hovered:</strong></p>
+                        <div class="pickr-container header-hover-text-pickr-c"><div class="header-hover-text-pickr"></div></div>
+                    </div>
+                    <div class="content-holder">
+                        <p class="modal-switch"><strong>Modal Close Button Pressed:</strong></p>
+                        <div class="pickr-container header-sel-text-pickr-c"><div class="header-sel-text-pickr"></div></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <h3 class="modal-footer">Enchanted Games</h3>
+                </div>
+            </div>
+        </div>
+        <!--Modal 1 end-->
+        <br />
+        <div class="container-for-all">
+            <h1>GLSL Colours</h1>
+            <h2>A simple generator for converting colours to a GLSL compatible format.</h2>
+            <br />
+            <span class="size20px" style="opacity: 0.4">Only change this if you are sure you need a more precise value.</span><br />
+            <label class="size20px" for="taginput">Round to nearest:</label>
+            <input min="1" max="20" id="roundinput" name="roundinput" type="number" class="modal-text modal-input" value="4" autocomplete="off" />
+            <br />
+            <br />
+
+            <label class="size20px" for="hexinput">Input hex: <span class="colourPreview" id="hexColourPreview"></span></label>
+            <label class="size20px" for="opacitycolourinput">Opacity:</label>
+            <span class="slider-text-before"> <strong id="opacityColourValue">1</strong> </span>
+            <input id="opacityinput" name="opacityinput" type="range" class="general-slider" min="0" max="1" step="0.1" value="1" autocomplete="off" oninput="document.querySelector('#opacityColourValue').innerText = this.value;" />
+            <br />
+            <label class="size20px hideable" for="taginput">Input GLSL:</label>
+            <input id="bedrockinput" class="hideable" name="bedrockinput" type="text" class="modal-text modal-input" placeholder="vec4( 0.5, 1, 0.5 )" autocomplete="off" />
+
+            <a id="generate" class="link_button">Convert</a> <span style="color: rgb(224, 48, 48)" class="size20px" id="errorelm"></span>
+
+            <br />
+            <label class="size20px hideable" for="output1">Output as hex: </label>
+            <input id="hexoutput" class="hideable" name="hexoutput" type="text" class="modal-text modal-input" placeholder="Output as HEX" autocomplete="off" />
+            <span class="colourPreview hideable" id="hexColourPreview2"><whitespace></whitespace></span>
+            <br />
+            <label class="size20px" for="output1">Output as GLSL: </label>
+            <input id="bedrockoutput" name="bedrockoutput" type="text" class="modal-text modal-input" placeholder="Output as GLSL" autocomplete="off" />
+            <span class="colourPreview" id="bedrockColourPreview2"><whitespace></whitespace></span>
+        </div>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+
+    <script>
+        var $e = document.getElementById.bind(document);
+        var $c = document.getElementsByClassName.bind(document);
+        var $q = document.querySelector.bind(document);
+        var $a = document.querySelectorAll.bind(document);
+
+        window.onload = init();
+
+        function init() {
+            $q("#generate").addEventListener("click", function a() {
+                generate();
+            });
+            $a(".hideable").forEach((element) => {
+                element.style.display = "none";
+            });
+        }
+
+        // pickr
+
+        hex_col_pickr = Pickr.create({
+            el: "#hexColourPreview",
+            theme: "monolith",
+            default: "red",
+            components: {
+                // Main components
+                preview: true,
+                opacity: false,
+                hue: true,
+                // Input / output Options
+                interaction: {
+                    hex: true,
+                    rgba: false,
+                    hsla: false,
+                    hsva: false,
+                    cmyk: false,
+                    input: true,
+                    clear: false,
+                    save: false,
+                },
+            },
+        });
+        var hexinput = $q("#hexinput");
+        hex_col_pickr.on("changestop", function () {
+            hex_col_pickr.applyColor((silent = true), hex_col_pickr.getColor().toHEXA().toString());
+        });
+
+        function generate() {
+            var hexInput = hex_col_pickr.getColor().toHEXA().toString();
+            var bedrockInput = $q("#bedrockinput").value;
+
+            var hexOutput = $q("#hexoutput");
+            hexOutput.value = "";
+            var bedrockOutput = $q("#bedrockoutput");
+            bedrockOutput.value = "";
+
+            valueObject = {
+                hexInput: hexInput,
+                bedrockInput: bedrockInput,
+                hexOutput: hexOutput,
+                bedrockOutput: bedrockOutput,
+            };
+
+            convertToBedrock(valueObject);
+        }
+
+        function showerror(errorstr) {
+            $q("#errorelm").innerText = errorstr;
+            setTimeout(() => {
+                $q("#errorelm").innerText = "";
+            }, 1000);
+            console.trace(errorstr);
+        }
+
+        function convertToBedrock(object) {
+            try {
+                roundTo = $q("#roundinput").value;
+
+                valueToConvert = hex_col_pickr.getColor().toHEXA().toString();
+
+                rgbValue = hexToRgb(valueToConvert);
+                var bedrockRgb = {};
+
+                bedrockRgb.r = rgbValue.r / 255;
+                bedrockRgb.r = parseFloat(bedrockRgb.r.toFixed(roundTo));
+
+                bedrockRgb.g = rgbValue.g / 255;
+                bedrockRgb.g = parseFloat(bedrockRgb.g.toFixed(roundTo));
+
+                bedrockRgb.b = rgbValue.b / 255;
+                bedrockRgb.b = parseFloat(bedrockRgb.b.toFixed(roundTo));
+
+                object.bedrockOutput.value = `vec4(${bedrockRgb.r}, ${bedrockRgb.g}, ${bedrockRgb.b}, ${$q("#opacityinput").value});`;
+            } catch (error) {
+                showerror("Please input a valid Hexadecimal colour value");
+                return false;
+            }
+        }
+
+        function convertToHex(object) {
+            try {
+                valueToConvert = object.bedrockInput;
+                valueToConvert = valueToConvert.replace("(", "").replace(")", "").replace(/ /g, "").replace("vec4", "").replace(",color.a", "");
+                var rgbArray = valueToConvert.split(",");
+                rgbArray[0] = Math.round(rgbArray[0] * 255);
+                rgbArray[1] = Math.round(rgbArray[1] * 255);
+                rgbArray[2] = Math.round(rgbArray[2] * 255);
+
+                var hexValue = rgbToHex(rgbArray[0], rgbArray[1], rgbArray[2]);
+
+                object.hexOutput.value = hexValue;
+            } catch (error) {
+                showerror("Please input a valid rgb decimal list. example: vec4(1,0,1,color.a) for magenta");
+            }
+        }
+
+        function hexToRgb(hex) {
+            var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result
+                ? {
+                      r: parseInt(result[1], 16),
+                      g: parseInt(result[2], 16),
+                      b: parseInt(result[3], 16),
+                  }
+                : null;
+        }
+
+        function rgbToHex(r, g, b) {
+            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        }
+        function componentToHex(c) {
+            var hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+    </script>
+</html>

@@ -24,7 +24,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: #2c3e50;
-    background-color: #27272a;
     margin-top: 60px;
 }
 </style>

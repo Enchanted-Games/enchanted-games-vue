@@ -15,6 +15,8 @@ export default {
 </script>
 
 <style lang="scss">
+// @import url(@/css/reset.css);
+// @import url(@/css/global_variables.css);
 body {
     background-color: #e418ff;
 }

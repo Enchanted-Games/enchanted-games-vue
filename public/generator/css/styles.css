@@ -1,0 +1,267 @@
+h2 {
+  color: var(--main-text-colour);
+  font-family: Arial, Helvetica;
+}
+
+h4 {
+  color: var(--main-text-colour);
+  font-family: Arial, Helvetica;
+  padding: 0;
+}
+
+p {
+  color: var(--main-text-colour);
+  font-family: Arial, Helvetica;
+  padding: 0;
+}
+
+.texture-box {
+  float: left;
+  background-color: #2b2b2b;
+  position: absolute;
+  left: 0.5%;
+  top: 1%;
+  width: 24.5%;
+  min-height: 98%;
+}
+
+.texture-box-preview {
+  float: left;
+  background-color: #2b2b2b;
+  position: absolute;
+  left: 25.5%;
+  top: 1%;
+  width: 24.5%;
+  min-height: 98%;
+}
+
+.button-box-right {
+  float: left;
+  background-color: #2b2b2b;
+  position: absolute;
+  left: 50.5%;
+  top: 1%;
+  width: 24.5%;
+  min-height: 98%;
+}
+
+.button-box-right-right {
+  float: left;
+  background-color: #2b2b2b;
+  position: absolute;
+  left: 75.5%;
+  top: 1%;
+  width: 24%;
+  min-height: 98%;
+}
+
+body {
+  background-color: #121212;
+  overflow: hiddens;
+}
+
+button {
+  width: 69px;
+  background-color: #2b2b2b;
+  border-width: 0px;
+  padding-top: 4px;
+  padding-bottom: 5px;
+}
+
+.preview-text {
+  color: var(--main-text-colour);
+  font-size: 25px;
+  font-family: Arial, Helvetica;
+  position: absolute;
+  left: 154px;
+  top: 75px;
+  width: 250px;
+}
+
+.preview-text2 {
+  color: var(--main-text-colour);
+  font-size: 25px;
+  font-family: Arial, Helvetica;
+  position: absolute;
+  left: 154px;
+  top: 275px;
+  width: 250px;
+}
+
+.preview-text3 {
+  color: var(--main-text-colour);
+  font-size: 25px;
+  font-family: Arial, Helvetica;
+  position: absolute;
+  left: 154px;
+  top: 475px;
+  width: 250px;
+}
+
+.preview-text4 {
+  color: var(--main-text-colour);
+  font-size: 25px;
+  font-family: Arial, Helvetica;
+  position: absolute;
+  left: 154px;
+  top: 678px;
+  width: 250px;
+}
+
+label {
+  color: var(--main-text-colour);
+  font-family: Arial, Helvetica;
+}
+
+div {
+  color: var(--main-text-colour);
+  font-family: Arial, Helvetica;
+}
+
+.prevOneCanvas {
+  float: left;
+  position: absolute;
+  width: 144px;
+  height: 144px;
+  left: 5px;
+  top: 68px;
+  z-index: 1;
+  border: 1px solid #ffffff;
+}
+
+.prevTwoCanvas {
+  float: left;
+  position: absolute;
+  width: 144px;
+  height: 144px;
+  left: 5px;
+  top: 265.5px;
+  z-index: 1;
+  border: 1px solid #ffffff;
+}
+
+.prevThreeCanvas {
+  float: left;
+  position: absolute;
+  width: 144px;
+  height: 144px;
+  left: 5px;
+  top: 464px;
+  z-index: 1;
+  border: 1px solid #ffffff;
+}
+
+.CanvasOnePreview {
+  float: left;
+  position: absolute;
+  width: 144px;
+  height: 144px;
+  left: 5px;
+  top: 668px;
+  z-index: 2;
+  border: 1px solid #ffffff;
+}
+
+.CanvasTwoPreview {
+  float: left;
+  position: absolute;
+  width: 144px;
+  height: 144px;
+  left: 5px;
+  top: 668px;
+  z-index: 3;
+}
+
+.CanvasThreePreview {
+  float: left;
+  position: absolute;
+  width: 144px;
+  height: 144px;
+  left: 5px;
+  top: 668px;
+  z-index: 4;
+}
+
+/* Screen to small Alert */
+.closeBtn {
+  float: right;
+  font-size: 30px;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.screencover {
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+}
+
+.alert-content {
+  background-color: #2b2b2b;
+  margin: 22% auto;
+  width: 70%;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 10px 0 rgba(0, 0, 0, 0.2);
+  -webkit-animation-name: alertopen;
+          animation-name: alertopen;
+  -webkit-animation-duration: 0.25s;
+          animation-duration: 0.25s;
+  border: 2px solid #5f2020;
+}
+
+.alert-content p {
+  color: var(--main-text-colour);
+  font-size: 20px;
+  text-align: center;
+}
+
+.alert-content h1 {
+  color: var(--main-text-colour);
+  text-align: center;
+}
+
+.alert-body {
+  padding: 10px 20px;
+}
+
+.alert-header h2 {
+  margin: 0;
+}
+
+.alert-header {
+  background: #696969;
+  padding: 10px;
+}
+
+@-webkit-keyframes alertopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes alertopen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (max-width: 1020px) {
+  .screencover {
+    display: block;
+  }
+}/*# sourceMappingURL=styles.css.map */

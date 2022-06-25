@@ -1,0 +1,239 @@
+// Contains styles used by blockdesigner
+
+:root {
+    --cube-sides-border: #292929 0px solid;
+}
+
+// ------- 3D preview -------
+.final-preview-container {
+    margin: auto;
+    min-width: 10px;
+}
+.final-preview-left {
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.final-preview-canv {
+    cursor: pointer;
+    image-rendering: pixelated;
+    box-sizing: content-box;
+    margin: 2px;
+    border: #636363 solid 2px;
+}
+.final-preview-canv:hover {
+    border: var(--header-bg) solid 2px;
+}
+.final-preview-canv:focus {
+    border: var(--header-bg) solid 2px;
+}
+#preview3Dcubecontainer {
+    user-select: none;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+#preview3Dcube {
+    transition: all 0.15s ease-out;
+    width: 112px;
+    height: 112px;
+    top: 50px;
+    transform: rotateX(-25deg) rotateY(-45deg) rotateZ(0deg);
+    margin: auto;
+    position: relative;
+    transform-style: preserve-3d;
+}
+#preview3Dcube > div {
+    transition: all 0.35s ease-out;
+    position: absolute;
+    width: 112px;
+    height: 112px;
+    float: left;
+    overflow: hidden;
+    opacity: 1;
+}
+
+#spawnerface {
+    position: absolute;
+}
+#spawnerface img {
+    width: 112px;
+    height: 112px;
+    image-rendering: pixelated;
+}
+
+#side1 {
+    transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(56px);
+    background: var(--newMCUI-sectionBackground);
+    border: var(--cube-sides-border);
+}
+#side2 {
+    transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(56px);
+    background: var(--newMCUI-sectionBackground);
+    border: var(--cube-sides-border);
+}
+#side3 {
+    transform: translateX(0px) translateY(0px) translateZ(56px);
+    background: var(--newMCUI-sectionBackground);
+    border: var(--cube-sides-border);
+}
+#side4 {
+    transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(56px);
+    background: var(--newMCUI-sectionBackground);
+    border: var(--cube-sides-border);
+}
+#side5 {
+    transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(56px);
+    background: var(--newMCUI-sectionBackground);
+    border: var(--cube-sides-border);
+}
+#side6 {
+    transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(56px);
+    background: var(--newMCUI-sectionBackground);
+    border: var(--cube-sides-border);
+}
+@keyframes cubeRotation {
+    0% {
+        transform: rotateX(-25deg) rotateY(-45deg) rotateZ(0deg);
+    }
+    50% {
+        transform: rotateX(-25deg) rotateY(-45deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(-25deg) rotateY(-45deg) rotateZ(0deg);
+    }
+}
+
+// ------- Edit Menu Preview -------
+.preview-shadow {
+    background: #000;
+    width: 70px;
+    height: 70px;
+    top: -10px;
+    margin: auto;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    opacity: 0.2;
+    z-index: 0;
+    transform: scaleY(0.3);
+}
+.cube-preview-container {
+    width: 150px;
+    height: 150px;
+    box-shadow: var(--soft-clay-box-shadow-large);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+.cube-preview-container-text {
+    color: #121212;
+    z-index: 100;
+    margin: 0px;
+    position: relative;
+    height: 0px;
+}
+#preview3Dcubecontainer-edit {
+    display: block;
+    position: relative;
+    z-index: 5;
+    user-select: none;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    transform-origin: center;
+    image-rendering: pixelated;
+    animation: hover-animation 3000ms ease-in-out infinite;
+}
+#preview3Dcube-edit {
+    transition: all 5000ms linear;
+    width: 56px;
+    height: 56px;
+    top: 37px;
+    transform-style: preserve-3d;
+    transform: rotateX(-25deg) rotateY(-45deg) rotateZ(0deg);
+    margin: auto;
+    position: relative;
+    transform-style: preserve-3d;
+}
+#preview3Dcube-edit > div {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    float: left;
+    overflow: hidden;
+    opacity: 1;
+}
+
+#spawnerface-edit {
+    position: absolute;
+}
+#spawnerface-edit img {
+    width: 56px;
+    height: 56px;
+    image-rendering: pixelated;
+}
+
+#side1-edit {
+    height: 56px;
+    transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(28px);
+    background-color: var(--modal-bg-colour);
+}
+#side2-edit {
+    transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(28px);
+    background-color: var(--modal-bg-colour);
+}
+#side3-edit {
+    transform: translateX(0px) translateY(0px) translateZ(28px);
+    background-color: var(--modal-bg-colour);
+}
+#side4-edit {
+    transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(28px);
+    background-color: var(--modal-bg-colour);
+}
+#side5-edit {
+    transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(28px);
+    background-color: var(--modal-bg-colour);
+}
+#side6-edit {
+    transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(28px);
+    background-color: var(--modal-bg-colour);
+}
+
+@keyframes hover-animation {
+    0%,
+    100% {
+        transform: translateY(9px) scale(1.2);
+    }
+    50% {
+        transform: translateY(-9px) scale(1.2);
+    }
+}
+
+// ------- Texture Image -------
+img.tex-img {
+    cursor: pointer;
+    image-rendering: pixelated;
+    box-sizing: border-box;
+    height: 52px;
+    width: 52px;
+    margin: 2px;
+    border: #636363 solid 2px;
+    transition: all ease-out 0.2s;
+}
+
+img.tex-img:hover {
+    border: var(--header-bg) solid 2px;
+    transform: translateY(-2px);
+}
+img.tex-img:focus-visible {
+    border: var(--header-bg) solid 2px;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 520px) {
+    // edit block menu resonsive
+    .cube-preview-container {
+        margin-right: auto;
+    }
+}
