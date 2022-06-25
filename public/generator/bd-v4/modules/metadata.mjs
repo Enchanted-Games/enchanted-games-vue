@@ -4,7 +4,7 @@ let versionInfo = {
     blockFormatVersion: 4,
     major: 4,
     minor: 0,
-    patch: 3,
+    patch: 4,
 };
 let resourcePackLink = "https://www.dropbox.com/sh/dbabpgcvwtnt8gf/AABsGg5gUyk7DPiuOU0lSN4Da?dl=0";
 
@@ -29,7 +29,7 @@ function checkForNewVersion(modalToOpen) {
         }
         if (num > parseFloat(versionInfo.major + "." + versionInfo.minor)) {
             // run if lastLoaded version is greater than the current version
-            console.log("Poking around in the local storage I see");
+            console.log("You have data from a future version! shhh..");
             localStorage.setItem("lastLoaded", JSON.stringify(versionInfo));
         }
     } else {

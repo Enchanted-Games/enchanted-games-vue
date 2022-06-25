@@ -89,7 +89,7 @@ input[invalid=true] {
   --newMCUI-sectionDarkBorder: #1e1e1f;
   --newMCUI-bottomShadow: #313233;
   --newMCUI-slotBackgroundColour: #88898a;
-  --newMCUI-slotBackgroundColourHover: #73a258;
+  --newMCUI-slotBackgroundColourHover: #c56d95;
   --newMCUI-buttonBorderWidth: 2px;
   --newMCUI-buttonTextColour: #ffffff;
   --newMCUI-buttonBackground: #48494a;
@@ -97,11 +97,11 @@ input[invalid=true] {
   --newMCUI-buttonDarkBorder: #1e1e1f;
   --newMCUI-buttonBottomShadow: #313233;
   --newMCUI-buttonBottomShadowHeight: 3px;
-  --newMCUI-buttonTextColour-hover: #fcfcfc;
-  --newMCUI-buttonBackground-hover: #3c8527;
-  --newMCUI-buttonLightBorder-hover: #639d52;
+  --newMCUI-buttonTextColour-hover: #1e1c1f;
+  --newMCUI-buttonLightBorder-hover: #d392af;
+  --newMCUI-buttonBackground-hover: #c56d95;
+  --newMCUI-buttonBottomShadow-hover: #b44b7a;
   --newMCUI-buttonDarkBorder-hover: #1e1e1f;
-  --newMCUI-buttonBottomShadow-hover: #34542b;
   --newMCUI-buttonBottomShadowHeight-hover: 3px;
   --newMCUI-buttonTopMargin-hover: 4px;
   --newMCUI-buttonBottomShadowHeight-pressed: 1px;
@@ -113,9 +113,9 @@ input[invalid=true] {
   --header-selected: #5c5c5c;
   --header-text-hover: #bababa;
   --header-bg: #c56d95;
-  --modal-main: #c56d95;
-  --header-text-colour: #ffffff;
-  --modal-header-text: #ffffff;
+  --modal-main: #8e3e62;
+  --header-text-colour: #fff;
+  --modal-header-text: #fff;
   --button-background-colour: #171717;
   --button-hilight-colour: #484848;
   --button-shadow-colour: #000000;
@@ -668,6 +668,10 @@ code {
   box-shadow: 0px var(--newMCUI-buttonBottomShadowHeight-pressed) 0px 0px var(--newMCUI-buttonBottomShadow-hover), 0px var(--newMCUI-buttonBottomShadowHeight-pressed) 0px var(--newMCUI-buttonBorderWidth) var(--newMCUI-buttonDarkBorder-hover), 0px 0px 0px var(--newMCUI-buttonBorderWidth) var(--newMCUI-buttonDarkBorder-hover);
   margin-bottom: calc(var(--newMCUI-buttonBottomShadowHeight-pressed) + 4px);
   margin-top: var(--newMCUI-buttonTopMargin-pressed);
+}
+
+.linkBtn:active:not(:hover) {
+  box-shadow: 0px var(--newMCUI-buttonBottomShadowHeight-pressed) 0px 0px var(--newMCUI-buttonBottomShadow), 0px var(--newMCUI-buttonBottomShadowHeight-pressed) 0px var(--newMCUI-buttonBorderWidth) var(--newMCUI-buttonDarkBorder-hover), 0px 0px 0px var(--newMCUI-buttonBorderWidth) var(--newMCUI-buttonDarkBorder-hover);
 }
 
 .linkBtn[disabledBtn=true],

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Redirecting ...</title>
+</head>
+<style>
+	body{
+		background: #121212;
+	}
+</style>
+<body>
+	
+</body>
+	<script>
+		window.onload = init()
+		function init(){
+
+			var urlParams = window.location.search
+
+			window.location.href = `https://enchanted.games/generator/blockdesigner${urlParams}`
+		}
+	</script>
+</html>

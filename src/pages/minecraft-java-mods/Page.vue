@@ -127,6 +127,9 @@ We were unable to get fetch the projects. Please [Return Home](/index) and try a
 </script>
 
 <style lang="scss">
+:root {
+    --main-background-image: url(@/assets/images/backgrounds/minecraft_mods.png);
+}
 img {
     margin: auto;
 }

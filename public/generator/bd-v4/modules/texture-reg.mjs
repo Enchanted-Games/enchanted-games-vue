@@ -27,11 +27,12 @@ let layer3textures = $q("#layer3textures");
 //     renderingMode: "all",
 //     images: {
 //         all: "/images/blockdesigner/li/clay.png",
-//     }
+//     },
 //     modelData: 1,
 //     blockTitle: "Example Title",
-//     blockLore: "If not specified, will be ignored"
-// })
+//     blockLore: "If not specified, will be ignored",
+// });
+// exampleTexture.createClickableTexture(layer1textures, finalPreview);
 
 function createTextures() {
     let eTexArray = [];

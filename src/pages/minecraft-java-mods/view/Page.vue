@@ -108,7 +108,7 @@ We couldn't find that project, it may have been moved or deleted. Double check t
                     this.shouldMainSectionCollapse = "false";
                     this.faviconImageSrc = "/favicon.ico";
                     this.pageTitle = "404";
-                    // window.location.pathname = "/404";
+                    this.faviconImageSrc = "/images/static/404.png";
                 } else {
                     // if project was succesfully downloaded
                     this.markdown = decodeURIComponent(data["encoded-markdown"]);
@@ -131,6 +131,8 @@ We couldn't find that project, it may have been moved or deleted. Double check t
                     this.linksObject = data["links-array"];
 
                     this.pageTitle = data["project-title"];
+
+                    this.faviconImageSrc = data["favicon-url"];
 
                     document.documentElement.style.setProperty("--main-background-image", `url(${data["background-url"]})`);
                 }

@@ -88,5 +88,14 @@ module.exports = defineConfig({
             title: "Minecraft Becrock Resource Packs - View Project",
             chunks: ["chunk-vendors", "chunk-common", "other-projects/view"],
         },
+
+        // {host}/colourtest.html
+        colourtest: {
+            entry: "./src/pages/colourtest/main.js",
+            template: "public/index.html",
+            filename: "colourtest.html",
+            title: "Colour Test",
+            chunks: ["chunk-vendors", "chunk-common", "colourtest"],
+        },
     },
 });

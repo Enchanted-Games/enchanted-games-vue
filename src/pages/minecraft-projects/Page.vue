@@ -44,7 +44,7 @@ All my Minecraft Projects for both Java and Bedrock editions`,
             projectCategories: [
                 { slug: "minecraft-java-resource-packs.html", src: "/static/project_icons/minecraft_java_lowres.png", title: "Minecraft Java Edition Resource Packs", description: "All my Resource Packs for Minecraft Java Edition. (Windows, MacOS, Linux)", lastUpdated: null },
                 { slug: "minecraft-bedrock-resource-packs.html", src: "/static/project_icons/minecraft_bedrock.png", title: "Minecraft Bedrock Edition Resource Packs", description: "All my Resource Packs for Minecraft Bedrock Edition. (iOS, Android, Windows 10/11, Consoles)", lastUpdated: null },
-                { slug: "minecraft-java-mods.html", src: "/static/project_icons/minecraft_java_mods_lowres.png", title: "Minecraft Java Edition Mods", description: "--TODO All my Mods for Minecraft Java Edition. (Windows, MacOS, Linux)", lastUpdated: null },
+                { slug: "minecraft-java-mods.html", src: "/static/project_icons/minecraft_java_mods_lowres.png", title: "Minecraft Java Edition Mods", description: "All my Mods for Minecraft Java Edition. (Windows, MacOS, Linux)", lastUpdated: "null" },
             ],
         };
     },

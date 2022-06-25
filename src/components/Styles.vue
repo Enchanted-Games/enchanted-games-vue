@@ -8,9 +8,9 @@ export default {
 
 <style lang="scss">
 // all styles for most pages
-@import url(@/assets/css/reset.css);
-@import url(@/assets/css/scrollbar.css);
-@import url(@/assets/css/global_variables.css);
-@import url(@/assets/css/general_classes.css);
-@import url(@/assets/css/general_elements.css);
+@use "@/assets/css/reset.scss";
+@use "@/assets/css/scrollbar.scss";
+@use "@/assets/css/global_variables.scss";
+@use "@/assets/css/general_classes.scss";
+@use "@/assets/css/general_elements.scss";
 </style>

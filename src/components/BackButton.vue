@@ -1,5 +1,5 @@
 <template>
-    <button @click="backPage" role="link">
+    <button v-if="shouldDisplay != false" @click="backPage" role="link">
         {{ text }}
     </button>
 </template>
@@ -13,10 +13,20 @@ export default {
             default: "Back",
         },
     },
+    data() {
+        return {
+            shouldDisplay: true,
+        };
+    },
     methods: {
         backPage() {
             history.back();
         },
+    },
+    mounted() {
+        if (history.length <= 1) {
+            this.shouldDisplay = false;
+        }
     },
 };
 </script>

@@ -1,92 +1,6 @@
-// :root {
-//     --main-background-colour: #242526;
-
-//     /* old */
-//     --main-colour: #242526;
-//     --main-text-colour: #ffffff;
-//     /**/
-//     --modal-bg-colour: #242526;
-//     --modal-text-colour: #ffffff;
-//     --main-text-colour-invert: #333333;
-//     --box-text: #ebebeb;
-//     --image-invert-theme: none();
-//     --MCUIbackgroundColour: #171717;
-//     --MCUIbackgroundColourFocus: #303030;
-//     --MCUIborderLighter: #484848;
-//     --MCUIborderDarker: #000000;
-//     --MCUIinvBackground: #171717;
-//     --MCUIpopupTitle: #fcfcfc;
-//     --MCUIpopupLore: #a800a8;
-//     --newMCUI-brightenAmount: 110%;
-//     --newMCUI-borderThickness: 3px;
-//     --newMCUI-bottomShadowHeight: 6px;
-//     --newMCUI-bottomShadowHalfHeight: 3px;
-//     --newMCUI-textColour: #ffffff;
-//     --newMCUI-sectionBackground: #48494a;
-//     --newMCUI-sectionLightBorder: #6a6c70;
-//     --newMCUI-sectionDarkBorder: #1e1e1f;
-//     --newMCUI-bottomShadow: #313233;
-//     --newMCUI-slotBackgroundColour: #88898a;
-//     --newMCUI-slotBackgroundColourHover: #73a258;
-//     --newMCUI-buttonBorderWidth: 2px;
-//     --newMCUI-buttonTextColour: #ffffff;
-//     --newMCUI-buttonBackground: #48494a;
-//     --newMCUI-buttonLightBorder: #6a6c70;
-//     --newMCUI-buttonDarkBorder: #1e1e1f;
-//     --newMCUI-buttonBottomShadow: #313233;
-//     --newMCUI-buttonBottomShadowHeight: 3px;
-//     --newMCUI-buttonTextColour-hover: #fcfcfc;
-//     --newMCUI-buttonBackground-hover: #3c8527;
-//     --newMCUI-buttonLightBorder-hover: #639d52;
-//     --newMCUI-buttonDarkBorder-hover: #1e1e1f;
-//     --newMCUI-buttonBottomShadow-hover: #34542b;
-//     --newMCUI-buttonBottomShadowHeight-hover: 3px;
-//     --newMCUI-buttonTopMargin-hover: 4px;
-//     --newMCUI-buttonBottomShadowHeight-pressed: 1px;
-//     --newMCUI-buttonTopMargin-pressed: 6px;
-//     --button-bg: #bababa;
-//     --button-bg-hover: #949494;
-//     --main-text-colour-selected: #333333;
-//     --border-colour: #8f8f8f;
-//     --header-selected: #5c5c5c;
-//     --header-text-hover: #bababa;
-//     --header-bg: #ffffff;
-//     --modal-main: #7e5f9a;
-//     --header-text-colour: #ffffff;
-//     --modal-header-text: #ffffff;
-//     --button-background-colour: #171717;
-//     --button-hilight-colour: #484848;
-//     --button-shadow-colour: #000000;
-//     --button-text-colour: #ffffff;
-//     --button-text-shadow: #3e3e3e;
-//     --button-background-colour-hover: #7d6099;
-//     --button-hilight-colour-hover: #ae8ecd;
-//     --button-shadow-colour-hover: #543a6d;
-//     --button-text-colour-hover: #ffffff;
-//     --button-text-shadow-hover: #3e3e3e;
-//     --scrollbar-thickness: 16px;
-//     --scrollbar-handle-colour: #4c4d4d;
-//     --scrollbar-handle-colour-hover: #58595a;
-//     --scrollbar-background-colour: #323334;
-//     --scrollbar-button-background-colour: #262627;
-//     --scrollbar-button-background-colour-hover: #323334;
-//     --scrollbar-button-arrow-colour: #4c4d4d;
-//     --scrollbar-button-arrow-colour-hover: #58595a;
-//     --brightness-100: brightness(100%);
-//     --brightness-75: brightness(90%);
-//     --brightness-50: brightness(75%);
-//     --brightness-25: brightness(65%);
-//     --soft-clay-box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.6);
-//     --soft-clay-box-shadow-large: 0px 4px 5px 1px rgba(0, 0, 0, 0.4);
-// }
-
-/*
-
-lines with 
-  // ~ not used
-shouldnt be deleted as they are planned to maybe be used again in the future
-
-*/
+// lines with
+// ~ not used
+// shouldnt be deleted as they are planned to maybe be used again in the future
 
 /* Root with dark mode (default) styling */
 :root {
@@ -100,11 +14,10 @@ shouldnt be deleted as they are planned to maybe be used again in the future
     --link-colour: var(--main-brand-colour-800); // text colour for <a> tags
     --link-colour-hover: var(--main-brand-colour-700); // text hover colour for <a> tags
     --main-text-colour: #ffffff; // main text colour
-    --main-text-colour-gradient: var(--main-brand-colour-600); // ~ doesnt seem to be used
     --main-text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.6); // text shadow for regular text
-    --main-headings-text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5); // text shadow for heading tags <h1> <h1> etc
+    --main-headings-text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5); // text shadow for heading tags <h1> <h2> etc
 
-    --headings-text-colour: var(--main-brand-colour-700); // text colour for heading tags <h1> <h1> etc
+    --headings-text-colour: var(--main-brand-colour-700); // text colour for heading tags <h1> <h2> etc
     --main-text-size: 17px; // size of regular text
     --h1-text-size: 42px; // <h1> tag text size
 
@@ -112,7 +25,7 @@ shouldnt be deleted as they are planned to maybe be used again in the future
     --input-switch-background-circle: #111212; // toggle part of switch colour
     --input-switch-background-active: var(--main-brand-colour-600); // switch toggled on background colour
 
-    --focus-border-colour: #0060df; // focused element styling (only used on a few elements, most use default borser styling)
+    --focus-border-colour: #0060df; // focused element styling (only used on a few elements, most use default browser styling)
     --focus-border-width: 3px;
     --focus-border-style: solid;
     --focus-border-radius: 10px;
@@ -130,7 +43,7 @@ shouldnt be deleted as they are planned to maybe be used again in the future
     --general-searchbar-background-colour: rgba(0, 0, 0, 0.4); // searchbar background colour (also used by back button)
     --general-searchbar-background-colour-hover: rgba(0, 0, 0, 0.6); // searchbar background colour hover (also used by back button)
 
-    --section-background-colour: hsla(300, 5%, 44%, 0.4); // used if backdrop filter blur is not supported
+    --section-background-colour: hsla(300, 3%, 36%, 0.4); // used if backdrop filter blur is not supported
     --section-background-colour-blur: hsla(300, 2%, 40%, 0.2); // used if backdrop filter blur is supported
     --section-background-blur-amount: 3px;
     --section-background-border-radius: 25px;
