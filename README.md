@@ -1,5 +1,7 @@
 # enchanted-games-vue
 
+## Visit this website at [enchanted.games](https://enchanted.games)
+
 ## Project setup
 ```
 npm install
