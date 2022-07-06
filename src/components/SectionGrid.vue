@@ -3,18 +3,29 @@
         <h1>{{ sectionTitle }}</h1>
         <div class="general-searchbar" v-if="showSearchBar != 'false'">
             <span class="search-container">
-                <input @keyup="filterSearches($event)" id="searchbarInput" type="text" :placeholder="searchBarPlaceholder" />
-                <label for="searchbarInput"><img width="24" height="24" loading="lazy" src="@/assets/images/icons/search.png" alt="🔍" /></label>
-                <p v-if="noSearchResults != true" id="searchQueryText">Showing results for <span id="searchQueryValue"></span></p>
+                <input
+                    ref="searchQueryInput"
+                    @keyup="
+                        updateSearchBarState();
+                        filterSearches($event);
+                    "
+                    id="searchbarInput"
+                    type="text"
+                    :placeholder="searchBarPlaceholder"
+                />
+                <label ref="searchBarLabel" for="searchbarInput"><img width="24" height="24" loading="lazy" src="/static/images/icons/search.png" alt="🔍" /></label>
+                <p ref="searchQueryText" id="searchQueryText" :class="{ hidden: noSearchResults == true }">
+                    Showing results for <span ref="searchQueryValue" id="searchQueryValue">{{ searchQueryText }}</span>
+                </p>
             </span>
         </div>
-        <ul :class="{ searchList: showSearchBar != 'false' }">
-            <div v-if="noSearchResults == true">
+        <ul ref="searchList" :class="{ searchList: showSearchBar != 'false' }">
+            <div :class="{ hidden: noSearchResults == false }">
                 <h2>
                     No results found for <span>{{ searchQueryText }}</span>
                 </h2>
             </div>
-            <span v-for="(project, index) in projectsArray" :key="index" class="li-wrapper">
+            <span ref="liWrapper" v-for="(project, index) in projectsArray" :key="index" class="li-wrapper">
                 <li>
                     <a :href="projectViewPath + project.slug">
                         <img loading="lazy" :src="project.src" :alt="project.title" />
@@ -57,12 +68,35 @@ export default {
         };
     },
     methods: {
+        updateSearchBarState() {
+            let input = this.$refs.searchQueryInput;
+            let query = input.value;
+            let label = this.$refs.searchBarLabel;
+            let labelImg = label.getElementsByTagName("img")[0];
+
+            if (query === "") {
+                labelImg.src = "/static/images/icons/search.png";
+            } else {
+                labelImg.src = "/static/images/icons/cross.png";
+                label.classList.add("clickable");
+                // add click event listener
+                labelImg.addEventListener("click", function clearInput() {
+                    // clear searchbar input and dispatch a keyup event so projects get re-ordered
+                    input.value = "";
+                    input.dispatchEvent(new Event("keyup"));
+
+                    label.classList.remove("clickable");
+
+                    this.removeEventListener("click", clearInput);
+                });
+            }
+        },
         filterSearches(e) {
-            let input = e.target;
+            let input = this.$refs.searchQueryInput;
             let filter = input.value.toUpperCase();
             this.searchQueryText = input.value;
-            let ul = document.querySelector(".searchList");
-            let li = ul.getElementsByTagName("span");
+            let ul = this.$refs.searchList;
+            let li = this.$refs.liWrapper;
 
             for (let i = 0; i < li.length; i++) {
                 let title = li[i].getElementsByTagName("h2")[0];
@@ -74,41 +108,30 @@ export default {
                 }
             }
 
-            // for (let i = 0; i < li.length; i++) {
-            //     if (i % 2 != 0) {
-            //         li[i].classList.add("oddItem");
-            //     } else if (i % 2 == 0 && i == li.length - 1) {
-            //         li[i].classList.contains("oddItem") ? true : li[i].classList.contains("oddItem");
-            //         li[i].classList.add("lastChild");
-            //     }
-            // }
-
             let liArray = [];
             for (let i = 0; i < li.length; i++) {
-                let displayStyle = li[i].style.display;
-                if (displayStyle === "") {
-                    displayStyle = "shown";
-                }
-                liArray.push(displayStyle);
+                liArray.push(li[i].classList.contains("hiddenProject"));
             }
 
-            if (liArray.every((value) => value === "none")) {
+            if (liArray.every((value) => value === true)) {
                 this.noSearchResults = true;
             } else {
                 this.noSearchResults = false;
             }
 
             if (filter == 0) {
-                try {
-                    document.querySelector("#searchQueryText").style.display = "none";
-                    document.querySelector("#searchQueryValue").innerText = "";
-                } catch {}
+                this.$refs.searchQueryText.style.display = "none";
+                this.$refs.searchQueryValue.innerText = "";
             } else {
-                try {
-                    document.querySelector("#searchQueryText").style.display = "initial";
-                    document.querySelector("#searchQueryValue").innerText = input.value;
-                } catch {}
+                this.$refs.searchQueryText.style.display = "initial";
+                this.$refs.searchQueryValue.innerText = input.value;
             }
+
+            input = null;
+            filter = null;
+            ul = null;
+            li = null;
+            liArray = null;
         },
     },
 };
@@ -129,6 +152,14 @@ export default {
     left: -31px;
     top: 7px;
     pointer-events: none;
+}
+.search-container label.clickable {
+    pointer-events: all;
+    cursor: pointer;
+    transition: 250ms ease-out;
+}
+.search-container label.clickable:hover {
+    opacity: 0.75;
 }
 .search-container p {
     display: none;
