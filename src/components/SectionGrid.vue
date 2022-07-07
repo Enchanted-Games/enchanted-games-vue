@@ -13,7 +13,7 @@
                     type="text"
                     :placeholder="searchBarPlaceholder"
                 />
-                <label ref="searchBarLabel" for="searchbarInput"><img width="24" height="24" loading="lazy" src="/static/images/icons/search.png" alt="🔍" /></label>
+                <label ref="searchBarLabel" for="searchbarInput"><img draggable="false" width="24" height="24" loading="lazy" src="/static/images/icons/search.png" alt="🔍" /></label>
                 <p ref="searchQueryText" id="searchQueryText" :class="{ hidden: noSearchResults == true }">
                     Showing results for <span ref="searchQueryValue" id="searchQueryValue">{{ searchQueryText }}</span>
                 </p>
@@ -67,6 +67,25 @@ export default {
             searchQueryText: "",
         };
     },
+    mounted() {
+        if (this.$refs.searchQueryInput == null || this.$refs.searchBarLabel == null) {
+            return false;
+        }
+        let that = this;
+        let labelImg = that.$refs.searchBarLabel.getElementsByTagName("img")[0];
+
+        labelImg.addEventListener("click", function clearInput() {
+            let input = that.$refs.searchQueryInput;
+            let query = input.value;
+            let label = that.$refs.searchBarLabel;
+
+            // clear searchbar input and dispatch a keyup event so projects get re-ordered
+            input.value = "";
+            input.dispatchEvent(new Event("keyup"));
+
+            label.classList.remove("clickable");
+        });
+    },
     methods: {
         updateSearchBarState() {
             let input = this.$refs.searchQueryInput;
@@ -80,15 +99,6 @@ export default {
                 labelImg.src = "/static/images/icons/cross.png";
                 label.classList.add("clickable");
                 // add click event listener
-                labelImg.addEventListener("click", function clearInput() {
-                    // clear searchbar input and dispatch a keyup event so projects get re-ordered
-                    input.value = "";
-                    input.dispatchEvent(new Event("keyup"));
-
-                    label.classList.remove("clickable");
-
-                    this.removeEventListener("click", clearInput);
-                });
             }
         },
         filterSearches(e) {
@@ -151,14 +161,10 @@ export default {
     position: relative;
     left: -31px;
     top: 7px;
-    pointer-events: none;
-}
-.search-container label.clickable {
-    pointer-events: all;
     cursor: pointer;
     transition: 250ms ease-out;
 }
-.search-container label.clickable:hover {
+.search-container label:hover {
     opacity: 0.75;
 }
 .search-container p {
