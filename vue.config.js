@@ -12,6 +12,15 @@ module.exports = defineConfig({
             chunks: ["chunk-vendors", "chunk-common", "index"],
         },
 
+        // {host}/404.html
+        404: {
+            entry: "./src/pages/404/main.js",
+            template: "public/index.html",
+            filename: "404.html",
+            title: "Minecraft Projects",
+            chunks: ["chunk-vendors", "chunk-common", "404"],
+        },
+
         // {host}/minecraft-projects.html
         "minecraft-projects": {
             entry: "./src/pages/minecraft-projects/main.js",
