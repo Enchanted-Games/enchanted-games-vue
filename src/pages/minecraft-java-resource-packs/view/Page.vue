@@ -134,7 +134,9 @@ We couldn't find that project, it may have been moved or deleted. Double check t
 
                     this.pageTitle = data["project-title"];
 
-                    document.documentElement.style.setProperty("--main-background-image", `url("${data["background-url"]}")`);
+                    if (data["background-url"] != null || data["background-url"] != undefined) {
+                        document.documentElement.style.setProperty("--main-background-image", `url(${data["background-url"]})`);
+                    }
                 }
             })
             .catch(function (e) {

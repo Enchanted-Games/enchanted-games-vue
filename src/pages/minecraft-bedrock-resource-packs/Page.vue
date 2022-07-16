@@ -90,7 +90,9 @@ All my Resource Packs for Minecraft Bedrock Edition. (iOS, Android, Windows 10/1
 
                     projectData.projectId = doc.id;
 
-                    projectsArray.push(projectData);
+                    if (projectData.projectviewstatus == 0) {
+                        projectsArray.push(projectData);
+                    }
                 });
 
                 // sort projects array by timestamp it was updated at
@@ -100,20 +102,16 @@ All my Resource Packs for Minecraft Bedrock Edition. (iOS, Android, Windows 10/1
 
                 // display projects that arent hidden
                 for (let i = 0; i < projectsArray.length; i++) {
-                    if (projectsArray[i].projectviewstatus == 0) {
-                        // project should be displayed
-                        let dataToDisplay = {
-                            slug: projectsArray[i]["projectId"],
-                            src: projectsArray[i]["favicon-url"],
-                            title: projectsArray[i]["project-title"],
-                            description: decodeURIComponent(projectsArray[i]["encoded-short-description"]),
-                            lastUpdated: projectsArray[i]["project-updated-date"],
-                        };
+                    // project should be displayed
+                    let dataToDisplay = {
+                        slug: projectsArray[i]["projectId"],
+                        src: projectsArray[i]["favicon-url"],
+                        title: projectsArray[i]["project-title"],
+                        description: decodeURIComponent(projectsArray[i]["encoded-short-description"]),
+                        lastUpdated: projectsArray[i]["project-updated-date"],
+                    };
 
-                        this.currentProjects.push(dataToDisplay);
-                    } else {
-                        return false;
-                    }
+                    this.currentProjects.push(dataToDisplay);
                 }
             })
             .catch((e) => {

@@ -1,0 +1,7 @@
+.pickr-container{
+    padding: 3px;
+    background: black;
+    min-width: 2px;
+    max-width:27px;
+    border-radius: .15em;
+}

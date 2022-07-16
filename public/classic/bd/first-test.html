@@ -1,0 +1,159 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Block Rendering Initial Test</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css" />
+        <!-- 'mono' theme -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" />
+        <!-- 'nano' theme -->
+        <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+        <link rel="stylesheet" href="main.css" />
+        <style>
+            a {
+                font-weight: none;
+            }
+
+            a:hover {
+                color: #d15400;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            #wrapD3Cube {
+                width: 250px;
+                height: 213px;
+                margin: 20px auto;
+                background-color: #eee;
+            }
+            #D3Cube {
+                width: 112px;
+                height: 112px;
+                top: 50px;
+                transform-style: preserve-3d;
+                -moz-transform-style: preserve-3d;
+                -webkit-transform-style: preserve-3d;
+                transform: rotateX(-22deg) rotateY(-38deg) rotateZ(0deg);
+                -moz-transform: rotateX(-22deg) rotateY(-38deg) rotateZ(0deg);
+                -webkit-transform: rotateX(-22deg) rotateY(-38deg) rotateZ(0deg);
+                margin: auto;
+                position: relative;
+                -moz-transform-style: preserve-3d;
+                transform-style: preserve-3d;
+                -webkit-transition: all 0.5s ease-in-out;
+                transition: all 0.5s ease-in-out;
+            }
+            #D3Cube > div {
+                position: absolute;
+                -webkit-transition: all 0.5s ease-in-out;
+                transition: all 0.5s ease-in-out;
+                width: 112px;
+                height: 112px;
+                float: left;
+                overflow: hidden;
+                opacity: 1;
+            }
+            #side1 {
+                transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(56px);
+                -moz-transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(56px);
+                -webkit-transform: rotatex(90deg) translateX(0px) translateY(0px) translateZ(56px);
+                background: #fff;
+                border: #7a7a7a 0.5px solid;
+            }
+            #side2 {
+                transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(56px);
+                -moz-transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(56px);
+                -webkit-transform: rotateY(-90deg) translateX(0px) translateY(0px) translateZ(56px);
+                background: #fff;
+                border: #7a7a7a 0.5px solid;
+            }
+            #side3 {
+                transform: translateX(0px) translateY(0px) translateZ(56px);
+                -moz-transform: translateX(0px) translateY(0px) translateZ(56px);
+                -webkit-transform: translateX(0px) translateY(0px) translateZ(56px);
+                background: #fff;
+                border: #7a7a7a 0.5px solid;
+            }
+            #side4 {
+                transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(56px);
+                -moz-transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(56px);
+                -webkit-transform: rotateY(90deg) translateX(0px) translateY(0px) translateZ(56px);
+                background: #fff;
+                border: #7a7a7a 0.5px solid;
+            }
+            #side5 {
+                transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(56px);
+                -moz-transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(56px);
+                -webkit-transform: rotateY(180deg) translateX(0px) translateY(0px) translateZ(56px);
+                background: #fff;
+                border: #7a7a7a 0.5px solid;
+            }
+            #side6 {
+                transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(56px);
+                -moz-transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(56px);
+                -webkit-transform: rotateX(-90deg) translateX(0px) translateY(0px) translateZ(56px);
+                background: #fff;
+                border: #7a7a7a 0.5px solid;
+            }
+            @-webkit-keyframes cubeRotation {
+                0% {
+                    -webkit-transform: rotateX(-22deg) rotateY(-38deg) rotateZ(0deg);
+                }
+                50% {
+                    -webkit-transform: rotateX(-22deg) rotateY(-128deg) rotateZ(0deg);
+                }
+                100% {
+                    -webkit-transform: rotateX(-22deg) rotateY(-398deg) rotateZ(0deg);
+                }
+            }
+            @keyframes cubeRotation {
+                0% {
+                    transform: rotateX(-22deg) rotateY(-38deg) rotateZ(0deg);
+                }
+                50% {
+                    transform: rotateX(-22deg) rotateY(-238deg) rotateZ(0deg);
+                }
+                100% {
+                    transform: rotateX(-22deg) rotateY(-398deg) rotateZ(0deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrapD3Cube">
+            <div id="D3Cube">
+                <div id="side1"><canvas id="canvas1top" width="112" height="112"></canvas></div>
+                <div id="side2"><canvas id="canvas1s1" width="112" height="112"></canvas></div>
+                <div id="side3"><canvas id="canvas1s2" width="112" height="112"></canvas></div>
+                <div id="side4"><canvas id="canvas1s3" width="112" height="112"></canvas></div>
+                <div id="side5"><canvas id="canvas1s4" width="112" height="112"></canvas></div>
+                <div id="side6"><canvas id="canvas1bottom" width="112" height="112"></canvas></div>
+            </div>
+        </div>
+        <p style="text-align: center">
+            <button onclick="turnCube('y', -45)">Left</button>
+            <button onclick="turnCube('y', 45)">Right</button>
+            <button onclick="turnCube('x', 180)">Flip</button>
+            <button onclick="resetCube()">Reset</button>
+        </p>
+        <canvas id="canvas1" width="112" height="112">
+            <p>Your browser doesn't support canvas.</p>
+        </canvas>
+        <canvas id="canvas2" width="112" height="112">
+            <p>Your browser doesn't support canvas.</p>
+        </canvas>
+        <canvas id="canvas3" width="112" height="112">
+            <p>Your browser doesn't support canvas.</p>
+        </canvas>
+        <img src="./images/diamondblock.png" alt="" id="diamondblock" width="112" height="112" draggable="false" />
+        <img src="./images/logside.png" alt="" id="logside" width="112" height="112" draggable="false" />
+        <img src="./images/nothing.png" alt="" id="empty" width="112" height="112" draggable="false" />
+
+        <div class="pickr-container">
+            <div class="colour-picker-1"></div>
+            <div class="colour-picker-2"></div>
+            <div class="colour-picker-3"></div>
+        </div>
+        <script src="./main2.js"></script>
+    </body>
+</html>

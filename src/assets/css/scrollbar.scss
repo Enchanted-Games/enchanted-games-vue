@@ -1,26 +1,26 @@
 // scrollbar styling
 
 // Styling will apply to all elements that are scrollable
-// To give an element a thin scrollbar give it the class "thin-scrollbar"
+// To give an element a thin scrollbar give it the class "thin-scrollbar" (element must already be scrollable)
 
 :root {
     // all settings for scrollbars
     --scrollbar-thickness: 16px; // webkit scrollbar thickness
     --scrollbar-thickness-thin: 8px; // webkit thin scrollbar thickness
 
-    --scrollbar-handle-colour: #4c4d4d; // scrollbar handle colour
-    --scrollbar-handle-colour-hover: #606161; // webkit scrollbar handle hover
-    --scrollbar-handle-colour-grabbed: #a6a7a7; // webkit scrollbar handle grabbed
+    --scrollbar-handle-colour: var(--main-brand-colour-300); // scrollbar handle colour
+    --scrollbar-handle-colour-hover: var(--main-brand-colour-400); // webkit scrollbar handle hover
+    --scrollbar-handle-colour-grabbed: var(--main-brand-colour-500); // webkit scrollbar handle grabbed
 
-    --scrollbar-background-colour: #191a1a; // scrollbar background colour
+    --scrollbar-background-colour: var(--main-brand-colour-100); // scrollbar background colour
 
     --scrollbar-button-background-colour: #191a1a; // webkit scrollbar button background
     --scrollbar-button-background-colour-hover: #323334; // webkit scrollbar button background hover
     --scrollbar-button-background-colour-grabbed: #4d4e4e; // webkit scrollbar button background grabbed
 
-    --scrollbar-button-arrow-colour: #4c4d4d; // webkit scrollbar arrow colour
-    --scrollbar-button-arrow-colour-hover: #606161; // webkit scrollbar arrow hover
-    --scrollbar-button-arrow-colour-grabbed: #a6a7a7; // webkit scrollbar arrow grabbed
+    --scrollbar-button-arrow-colour: var(--scrollbar-handle-colour); // webkit scrollbar arrow colour
+    --scrollbar-button-arrow-colour-hover: var(--scrollbar-handle-colour-hover); // webkit scrollbar arrow hover
+    --scrollbar-button-arrow-colour-grabbed: var(--scrollbar-handle-colour-grabbed); // webkit scrollbar arrow grabbed
 }
 
 // TODO make sure all styling works properly

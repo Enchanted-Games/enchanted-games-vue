@@ -71,8 +71,8 @@
     --image-loading-circle-opacity: 0.8; // opacity of the loading circle on a loading image
 
     --main-brand-colour-hue: 333; // colour hue for brand colour (in HSL format)
-    --main-brand-colour-saturation: 35%; // colour saturation for brand colour (in HSL format) must be percentage
-    --main-brand-colour-test: hsl(333, 35%, 50%); // test neutral (400) brand colour before changing hue and saturation above
+    --main-brand-colour-saturation: 33%; // colour saturation for brand colour (in HSL format) must be percentage
+    --main-brand-colour-test: hsl(333, 31%, 50%); // test neutral (400) brand colour before changing hue and saturation above
 
     --main-brand-colour-100: hsl(var(--main-brand-colour-hue), var(--main-brand-colour-saturation), 10%);
     --main-brand-colour-200: hsl(var(--main-brand-colour-hue), calc(var(--main-brand-colour-saturation) + 2%), 20%);
@@ -87,7 +87,7 @@
 ::selection {
     // main brand colour 300 (with added opacity)
     background-color: hsla(333, 32%, 30%, 0.7);
-    color: white;
+    // color: white;
 }
 
 /* Root with light mode styling */

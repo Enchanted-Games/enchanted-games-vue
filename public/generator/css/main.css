@@ -1218,21 +1218,17 @@ h1 {
   #card_holder {
     flex-direction: column;
   }
-
   .card_container_single {
     margin-left: 0px;
     width: 100%;
     margin-right: 0px;
   }
-
   .card_container_double {
     width: 100%;
   }
-
   .card_container {
     width: 100%;
   }
-
   .flex-break-changable {
     flex-basis: 0;
     height: 0;
@@ -1505,41 +1501,32 @@ h2 {
     flex-wrap: wrap;
     flex-direction: column;
   }
-
   .modal-split-1 {
     width: 92%;
   }
-
   .modal-split-2 {
     width: 92%;
   }
-
   .modal-split-1 > .linkBtn {
     margin: auto;
   }
-
   .modal-input-wrapper {
     flex-wrap: wrap;
     flex-direction: column;
   }
-
   .modal-split-1 > .modal-input-wrapper > .modal-input {
     margin: auto;
   }
-
   .modal-name-container {
     max-width: initial;
   }
-
   .force-left-cancelable {
     margin-right: initial;
   }
-
   .center-when-mobile {
     margin-left: auto;
     margin-right: auto;
   }
-
   .linkBtn {
     width: 100%;
   }
@@ -2004,13 +1991,11 @@ footer p {
     width: 100%;
     max-height: 550px !important;
   }
-
   .preview-background {
     margin: 50px auto;
     margin-bottom: 0px;
     width: 90%;
   }
-
   .modal-body {
     height: 65% !important;
   }
@@ -2211,7 +2196,8 @@ ul.features-list > li {
 }
 
 .tiny-text {
-  font-size: 1px;
+  font-size: 11px;
+  opacity: 0.3;
 }
 
 .force-left {
