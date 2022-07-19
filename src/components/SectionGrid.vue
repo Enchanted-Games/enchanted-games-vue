@@ -1,6 +1,7 @@
 <template>
     <div class="general-section overrideCollapse">
         <h1>{{ sectionTitle }}</h1>
+        <p>{{ sectionDesc }}</p>
         <div class="general-searchbar" v-if="showSearchBar != 'false'">
             <span class="search-container">
                 <input
@@ -27,11 +28,12 @@
             </div>
             <span ref="liWrapper" v-for="(project, index) in projectsArray" :key="index" class="li-wrapper">
                 <li>
-                    <a :href="projectViewPath + project.slug">
+                    <a :class="{ includesExtra: project.type != null && project.lastUpdated != null }" :href="projectViewPath + project.slug">
                         <img loading="lazy" :src="project.src" :alt="project.title" />
                         <h2>{{ project.title }}</h2>
                         <p class="description">{{ project.description }}</p>
                         <p v-if="project.lastUpdated != null" class="date">{{ project.lastUpdated }}</p>
+                        <p v-if="project.type != null" class="type">{{ project.type }}</p>
                     </a>
                 </li>
             </span>
@@ -45,6 +47,10 @@ export default {
     props: {
         sectionTitle: {
             type: String,
+        },
+        sectionDesc: {
+            type: String,
+            default: "",
         },
         projectsArray: {
             type: Object,
@@ -282,6 +288,9 @@ li a {
     padding: 15px;
     padding-bottom: 27px;
 }
+li a.includesExtra {
+    padding-bottom: 48px;
+}
 li a img {
     width: 150px;
     height: 150px;
@@ -302,8 +311,22 @@ li a p.date::before {
     color: var(--main-brand-colour-700);
 }
 
+li a p.type {
+    color: var(--main-brand-colour-800);
+    position: absolute;
+    bottom: 24px;
+    right: 14px;
+    text-transform: capitalize;
+}
+li a p.type::before {
+    font-weight: normal;
+    font-style: italic;
+    content: "type - ";
+    color: var(--main-brand-colour-700);
+}
+
 // desktop styling
-@media (min-width: 1200px) {
+@media (min-width: 950px) {
     ul {
         display: flex;
         flex-wrap: wrap;
@@ -320,6 +343,7 @@ li a p.date::before {
         grid-template-columns: 165px 1fr;
         grid-template-rows: 40px 100px;
         overflow: hidden;
+        padding-bottom: 24px !important;
     }
     li a img {
         margin: 0px;
@@ -328,10 +352,17 @@ li a p.date::before {
     li a h2 {
         grid-column: 2;
         grid-row: 1;
+        max-width: 65ch;
     }
     li a p.description {
         grid-column: 2;
         grid-row: 2;
+        max-width: 65ch;
+    }
+
+    li a p.type {
+        top: 4px !important;
+        right: 14px !important;
     }
 
     .search-container input {

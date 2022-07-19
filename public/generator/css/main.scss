@@ -1476,15 +1476,6 @@ input:checked + .slider:before {
     height: 0;
 }
 
-/* Rounded sliders */
-.slider.round {
-    border-radius: 34px;
-}
-
-.slider.round:before {
-    border-radius: 50%;
-}
-
 footer {
     padding: 0;
     margin-top: 0;
